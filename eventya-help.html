@@ -154,7 +154,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;height:64px;">
       <a href="index.html" style="display:flex;flex-direction:column;line-height:1;text-decoration:none;">
         <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
-        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Clarity</span>
       </a>
       <div style="display:flex;align-items:center;gap:28px;">
         <a href="eventya-platform-v3.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">Platform</a>
@@ -754,7 +754,7 @@
       <div>
         <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:14px;">
           <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">eventya</span>
-          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Neighbourhood</span>
+          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Clarity</span>
         </div>
         <p style="color:var(--footer-text);font-size:13px;line-height:1.7;max-width:240px;">Destination Management Platform for European DMOs.</p>
       </div>
@@ -870,4 +870,14 @@
 </script>
 <script>
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); 
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.fade-up, .scroll-observer').forEach(el => obs.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up, .scroll-observer').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script>
+</body>
+</html>

@@ -3,573 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eventya — Turn your destination into a digital experience</title>
-  <meta name="description" content="A complete Destination Management System. Proven across 40+ destinations. Built for Europe." />
+  <title>Eventya — Destination Management Platform</title>
+  <meta name="description" content="The complete DMS for European DMOs. One platform. Five digital channels. All from a single source of truth." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-
     :root {
       --bg: #060d14;
-      --bg-alt: #0a1a18;
+      --bg-2: #0a1a18;
       --bg-card: rgba(255,255,255,0.025);
       --border: rgba(255,255,255,0.07);
-      --border-teal: rgba(0,184,169,0.15);
+      --border-teal: rgba(0,184,169,0.2);
       --text-primary: #ffffff;
       --text-secondary: rgba(255,255,255,0.5);
-      --text-muted: rgba(255,255,255,0.3);
+      --text-muted: rgba(255,255,255,0.35);
       --text-label: rgba(255,255,255,0.25);
-      --teal-label: rgba(0,184,169,0.7);
-      --card-on-alt: rgba(255,255,255,0.04);
-      --card-on-alt-border: rgba(0,184,169,0.15);
-      --card-text: rgba(255,255,255,0.9);
-      --card-subtext: rgba(255,255,255,0.5);
-      --card-muted: rgba(255,255,255,0.3);
-      --tag-bg: rgba(0,184,169,0.08);
-      --tag-border: rgba(0,184,169,0.15);
-      --tag-text: rgba(0,184,169,0.85);
-      --nav-bg: rgba(6,13,20,0.92);
-      --nav-border: rgba(255,255,255,0.05);
-      --nav-link: rgba(255,255,255,0.5);
-      --input-bg: rgba(255,255,255,0.04);
-      --input-border: rgba(255,255,255,0.1);
-      --input-text: #ffffff;
-      --input-placeholder: rgba(255,255,255,0.25);
-      --footer-bg: #060d14;
-      --footer-border: rgba(255,255,255,0.05);
-      --footer-text: rgba(255,255,255,0.3);
-      --footer-link: rgba(255,255,255,0.4);
-      --footer-label: rgba(255,255,255,0.25);
-      --footer-copy: rgba(255,255,255,0.15);
-      --divider: rgba(255,255,255,0.05);
+      --section-alt: #0a1a18;
+      --section-alt-border: rgba(0,184,169,0.12);
+      --section-alt-text: rgba(255,255,255,0.92);
+      --section-alt-text-2: rgba(255,255,255,0.55);
+      --section-alt-text-3: rgba(0,184,169,0.85);
+      --card-alt: rgba(255,255,255,0.04);
+      --card-alt-border: rgba(0,184,169,0.15);
+      --card-alt-text: rgba(255,255,255,0.9);
+      --card-alt-subtext: rgba(255,255,255,0.5);
       --stat-bg: rgba(255,255,255,0.03);
       --stat-border: rgba(255,255,255,0.07);
-      --placeholder-bg: rgba(0,184,169,0.08);
+      --nav-bg: rgba(6,13,20,0.92);
+      --nav-border: rgba(255,255,255,0.05);
+      --tech-row-bg: rgba(255,255,255,0.03);
+      --tech-row-border: rgba(0,184,169,0.08);
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255,255,255,0.3);
+      --footer-text: rgba(255,255,255,0.3);
+      --footer-link: rgba(255,255,255,0.4);
+      --footer-label: rgba(255,255,255,0.3);
+      --footer-copy: rgba(255,255,255,0.15);
+      --footer-bg: #060d14;
     }
-
     [data-theme="light"] {
       --bg: #f8fffe;
-      --bg-alt: #f0fdfa;
+      --bg-2: #f0fdfa;
       --bg-card: #ffffff;
       --border: rgba(0,184,169,0.12);
       --border-teal: rgba(0,184,169,0.25);
       --text-primary: #134e4a;
       --text-secondary: #1e6b5e;
       --text-muted: #0d9488;
-      --text-label: #0d9488;
-      --teal-label: #0d9488;
-      --card-on-alt: #ffffff;
-      --card-on-alt-border: rgba(0,184,169,0.2);
-      --card-text: #134e4a;
-      --card-subtext: #1e6b5e;
-      --card-muted: #5eead4;
-      --tag-bg: rgba(0,184,169,0.08);
-      --tag-border: rgba(0,184,169,0.2);
-      --tag-text: #134e4a;
-      --nav-bg: rgba(248,255,254,0.96);
+      --text-label: #5eead4;
+      --section-alt: #ffffff;
+      --section-alt-border: rgba(0,184,169,0.1);
+      --section-alt-text: #134e4a;
+      --section-alt-text-2: #1e6b5e;
+      --section-alt-text-3: #0d9488;
+      --card-alt: #f0fdfa;
+      --card-alt-border: rgba(0,184,169,0.2);
+      --card-alt-text: #134e4a;
+      --card-alt-subtext: #1e6b5e;
+      --stat-bg: rgba(0,184,169,0.06);
+      --stat-border: rgba(0,184,169,0.15);
+      --nav-bg: rgba(248,255,254,0.95);
       --nav-border: rgba(0,184,169,0.12);
-      --nav-link: #1e6b5e;
+      --tech-row-bg: #ffffff;
+      --tech-row-border: rgba(0,184,169,0.12);
       --input-bg: #ffffff;
       --input-border: rgba(0,184,169,0.25);
       --input-text: #134e4a;
-      --input-placeholder: #5eead4;
-      --footer-bg: #f0fdfa;
-      --footer-border: rgba(0,184,169,0.12);
+      --input-placeholder: rgba(0,184,169,0.4);
       --footer-text: #1e6b5e;
       --footer-link: #0d9488;
       --footer-label: #5eead4;
       --footer-copy: rgba(0,184,169,0.4);
-      --divider: rgba(0,184,169,0.1);
-      --stat-bg: rgba(0,184,169,0.06);
-      --stat-border: rgba(0,184,169,0.15);
-      --placeholder-bg: rgba(0,184,169,0.05);
+      --footer-bg: #f0fdfa;
     }
 
-    * { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
-
-
+    * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; }
     h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .hero-grid { background-image: linear-gradient(var(--border) 1px,transparent 1px), linear-gradient(90deg,var(--border) 1px,transparent 1px); background-size: 48px 48px; }
-    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .hero-grid { background-image: linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px); background-size: 48px 48px; }
+    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
     @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);} 70%{box-shadow:0 0 0 12px rgba(0,184,169,0);} 100%{box-shadow:0 0 0 0 rgba(0,184,169,0);} }
     .btn-pulse { animation: pulse-ring 2.5s infinite; }
-    @keyframes fade-pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .live-dot { animation: fade-pulse 2s infinite; }
-
-    /* Shared component styles */
-    .section-light { background: var(--bg-alt); border-top: 1px solid var(--border-teal); }
-    .section-dark { background: var(--bg); border-top: 1px solid var(--divider); }
-    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; transition: transform 0.2s, border-color 0.2s; }
-    .card:hover { transform: translateY(-2px); border-color: var(--border-teal); }
-    .card-on-light { background: var(--card-on-alt); border: 1px solid var(--card-on-alt-border); border-radius: 16px; transition: transform 0.2s; }
-    .card-on-light:hover { transform: translateY(-2px); }
-    .tag { font-size: 10px; color: var(--tag-text); background: var(--tag-bg); border: 1px solid var(--tag-border); padding: 3px 8px; border-radius: 99px; }
-    .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-label); font-family: 'DM Sans', sans-serif; margin-bottom: 12px; }
-    input, textarea, select {
-      background: var(--input-bg); border: 1px solid var(--input-border);
-      color: var(--input-text); border-radius: 12px; font-family: 'DM Sans', sans-serif;
-      font-size: 14px; padding: 12px 16px; width: 100%; box-sizing: border-box; outline: none;
-      transition: border-color 0.2s;
-    }
-    input:focus, textarea:focus, select:focus { border-color: #00B8A9; }
-    input::placeholder, textarea::placeholder { color: var(--input-placeholder); }
-    label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; display: block; font-family: 'DM Sans', sans-serif; }
-
-    /* Observer */
-    .scroll-observer { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .scroll-observer.visible { opacity: 1; transform: translateY(0); }
-
-    .hero-grid{background-image:linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px);background-size:48px 48px;}
-    .text-gradient{background:linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-    .teal-glow{box-shadow:0 0 60px rgba(0,184,169,0.1),0 0 120px rgba(0,184,169,0.05);}
-    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
-    .fade-up.visible{opacity:1;transform:translateY(0);}
-    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);}70%{box-shadow:0 0 0 12px rgba(0,184,169,0);}100%{box-shadow:0 0 0 0 rgba(0,184,169,0);}}
-    .btn-pulse{animation:pulse-ring 2.5s infinite;}
-    .feature-card{transition:transform 0.2s,border-color 0.2s;}
-    .feature-card:hover{transform:translateY(-3px);border-color:rgba(0,184,169,0.25)!important;}
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot { animation: pulse 2s infinite; }
+    .theme-toggle { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:99px; padding:4px 10px 4px 6px; cursor:pointer; }
+    .toggle-track { width:36px; height:20px; border-radius:99px; background:rgba(0,184,169,0.2); position:relative; transition:background 0.3s; }
+    [data-theme="light"] .toggle-track { background:#00B8A9; }
+    .toggle-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.3s; }
+    [data-theme="light"] .toggle-thumb { transform:translateX(16px); }
+    .toggle-label { font-size:11px; color:var(--text-secondary); font-family:'DM Sans',sans-serif; }
   </style>
 </head>
-<body>
-
-<!-- NAVBAR -->
-
-<nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--nav-border);background:var(--nav-bg);backdrop-filter:blur(12px);">
+<body><nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--nav-border);background:var(--nav-bg);backdrop-filter:blur(12px);">
   <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
     <div style="display:flex;align-items:center;justify-content:space-between;height:64px;">
       <a href="index.html" style="display:flex;flex-direction:column;line-height:1;text-decoration:none;">
         <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
-        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Clarity</span>
       </a>
-      <div style="display:flex;align-items:center;gap:28px;">
-        <a href="eventya-platform-v3.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">Platform</a>
-        <a href="eventya-destinations.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">Destinations</a>
-        <a href="eventya-pricing.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">Pricing</a>
-        <a href="eventya-about.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">About</a>
-        <a href="eventya-help.html" style="font-size:13px;color:var(--nav-link);text-decoration:none;">Help</a>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="eventya-platform-v3.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Platform</a>
+        <a href="eventya-destinations.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Destinations</a>
+        <a href="eventya-pricing.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Pricing</a>
+        <a href="eventya-about.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">About</a>
+        <a href="eventya-help.html" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Help</a>
+        
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
-        
-        <button onclick="toggleTheme()" class="theme-toggle" title="Toggle dark / light mode" style="display:flex;align-items:center;gap:7px;background:var(--bg-card);border:1px solid var(--border);border-radius:99px;padding:5px 10px 5px 6px;cursor:pointer;">
-          <div style="width:34px;height:18px;border-radius:99px;background:rgba(0,184,169,0.2);position:relative;transition:background 0.25s;" id="toggle-track">
-            <div style="position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--card-on-alt);transition:transform 0.25s;" id="toggle-thumb"></div>
-          </div>
-          <span id="theme-label" style="font-size:11px;color:var(--nav-link);font-family:'DM Sans',sans-serif;">Dark</span>
+        <button onclick="toggleTheme()" class="theme-toggle" title="Toggle dark/light mode">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="theme-label">Dark</span>
         </button>
-        <a href="#" style="font-size:13px;color:var(--nav-link);text-decoration:none;padding:8px 14px;">Sign in</a>
-        <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:7px;background:#00B8A9;color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 18px;border-radius:12px;text-decoration:none;">
-          Get started
-          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        <a href="#" style="font-size:13px;color:var(--text-secondary);text-decoration:none;padding:8px 16px;">Sign in</a>
+        <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 20px;border-radius:12px;text-decoration:none;">
+          Create your destination
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </div>
   </div>
 </nav>
 
-
 <!-- HERO -->
-<section class="hero-grid" style="position:relative;min-height:100vh;display:flex;align-items:center;padding:96px 24px 80px;overflow:hidden;">
-  <div style="position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,184,169,0.07),transparent);pointer-events:none;"></div>
-  <div style="position:absolute;bottom:0;right:0;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(245,197,24,0.05),transparent);pointer-events:none;"></div>
-
-  <div style="max-width:1280px;margin:0 auto;width:100%;">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
-
-      <!-- Badge -->
-      <div class="fade-up" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.2);color:rgba(0,184,169,0.9);font-size:11px;font-family:'DM Sans',sans-serif;padding:6px 14px;border-radius:99px;margin-bottom:28px;">
-        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        What's new in v5 · Launching March 20, 2026
+<section class="hero-grid" style="padding:140px 24px 96px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:800px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,184,169,0.07),transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;">
+    <div>
+      <div class="fade-up" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.2);color:rgba(0,184,169,0.9);font-size:11px;padding:6px 14px;border-radius:99px;margin-bottom:24px;font-family:'DM Sans',sans-serif;">
+        <span class="live-dot" style="width:6px;height:6px;border-radius:50%;background:#00B8A9;display:inline-block;"></span>
+        Proven across 40+ destinations. Built for Europe.
       </div>
-
-      <!-- Headline -->
-      <h1 class="fade-up" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(40px,6vw,72px);line-height:1.04;letter-spacing:-0.025em;color:var(--text-primary);margin-bottom:24px;">
-        Turn your destination<br/>into a <span class="text-gradient">digital experience.</span>
+      <h1 class="fade-up" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,5vw,62px);line-height:1.02;letter-spacing:-0.025em;color:var(--text-primary);margin-bottom:24px;">
+        Your destination.<br/><span class="text-gradient">Everywhere visitors look.</span>
       </h1>
-
-      <!-- Subheadline -->
-      <p class="fade-up" style="color:var(--text-secondary);font-size:clamp(16px,2vw,20px);line-height:1.7;max-width:580px;margin:0 auto 36px;font-weight:300;">
-        Multilingual website, native mobile app, and visitor helpdesk —
-        all in one platform, live in minutes.
-        <span style="color:rgba(255,255,255,0.75);">Proven across 40+ destinations. Built for Europe.</span>
+      <p class="fade-up" style="color:var(--text-secondary);font-size:18px;line-height:1.75;margin-bottom:36px;max-width:480px;">
+        Eventya is the Destination Management System built for DMOs. Manage your content once — it flows automatically to your website, mobile app, AI agent, WhatsApp and helpdesk.
       </p>
-
-      <!-- CTAs -->
-      <div class="fade-up" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
-        <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;padding:16px 32px;border-radius:16px;text-decoration:none;box-shadow:0 8px 32px rgba(0,184,169,0.25);">
-          Create your destination — it's free
-          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      <div class="fade-up" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:15px 28px;border-radius:14px;text-decoration:none;">
+          Create your destination
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <a href="eventya-destinations.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,0.1);padding:15px 22px;border-radius:16px;">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          See a live destination
+        <a href="eventya-platform-v3.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid var(--border);border-radius:14px;">
+          See the platform →
         </a>
       </div>
-      <p class="fade-up" style="color:var(--text-label);font-size:12px;margin-bottom:64px;">No credit card. No time limit. Go live when you're ready.</p>
+      <p class="fade-up" style="color:var(--text-muted);font-size:12px;margin-top:16px;">Free until you go live on your domain. No credit card required.</p>
+    </div>
 
-      <!-- Hero mockup -->
-      <div class="fade-up teal-glow" style="border-radius:20px;border:1px solid rgba(255,255,255,0.08);background:var(--bg-card);overflow:hidden;max-width:900px;margin:0 auto;">
-        <!-- Browser chrome -->
-        <div style="display:flex;align-items:center;gap:6px;padding:12px 20px;border-bottom:1px solid var(--nav-border);background:rgba(255,255,255,0.02);">
-          <span style="width:11px;height:11px;border-radius:50%;background:rgba(239,68,68,0.45);"></span>
-          <span style="width:11px;height:11px;border-radius:50%;background:rgba(234,179,8,0.45);"></span>
-          <span style="width:11px;height:11px;border-radius:50%;background:rgba(34,197,94,0.45);"></span>
-          <div style="margin-left:12px;flex:1;background:rgba(255,255,255,0.05);border-radius:6px;height:26px;display:flex;align-items:center;padding:0 12px;">
-            <span style="font-size:11px;color:var(--text-label);font-family:'DM Sans',sans-serif;">yourdestination.com</span>
+    <!-- Browser mockup -->
+    <div class="fade-up" style="position:relative;">
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.4);">
+        <div style="background:rgba(255,255,255,0.05);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="display:flex;gap:5px;">
+            <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,99,71,0.6);"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,165,0,0.6);"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:rgba(50,205,50,0.6);"></div>
           </div>
-          <div style="display:flex;gap:4px;margin-left:12px;">
-            <span style="font-size:10px;color:#00B8A9;background:rgba(0,184,169,0.1);border:1px solid rgba(0,184,169,0.2);padding:3px 8px;border-radius:99px;">EN</span>
-            <span style="font-size:10px;color:var(--text-label);background:var(--bg-card);padding:3px 8px;border-radius:99px;">DE</span>
-            <span style="font-size:10px;color:var(--text-label);background:var(--bg-card);padding:3px 8px;border-radius:99px;">FR</span>
-          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:6px;padding:5px 12px;font-size:11px;color:var(--text-muted);">visit.sibiu.ro</div>
         </div>
-        <!-- Dashboard interior -->
-        <div style="padding:24px;display:grid;grid-template-columns:140px 1fr 180px;gap:16px;min-height:260px;">
-          <!-- Sidebar -->
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="height:28px;background:rgba(0,184,169,0.15);border-radius:8px;display:flex;align-items:center;padding:0 10px;"><div style="height:5px;width:70%;background:rgba(0,184,169,0.5);border-radius:3px;"></div></div>
-            <div style="height:22px;background:var(--bg-card);border-radius:6px;"></div>
-            <div style="height:22px;background:var(--bg-card);border-radius:6px;"></div>
-            <div style="height:22px;background:var(--bg-card);border-radius:6px;"></div>
-            <div style="height:22px;background:var(--bg-card);border-radius:6px;"></div>
-            <div style="margin-top:8px;height:22px;background:var(--bg-card);border-radius:6px;"></div>
-            <div style="height:22px;background:var(--bg-card);border-radius:6px;"></div>
+        <div style="padding:24px;background:linear-gradient(160deg,rgba(0,184,169,0.08),rgba(0,0,0,0));">
+          <div style="background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);border-radius:12px;padding:20px;margin-bottom:12px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--text-primary);margin-bottom:6px;">Welcome to Sibiu</div>
+            <div style="font-size:12px;color:var(--text-secondary);">Discover the most beautiful medieval city in Transylvania</div>
           </div>
-          <!-- Main content -->
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <!-- Stats row -->
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-              <div style="height:64px;border-radius:12px;background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
-                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">275</span>
-                <span style="font-size:10px;color:var(--text-muted);">Attractions</span>
-              </div>
-              <div style="height:64px;border-radius:12px;border:1px solid rgba(245,197,24,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:rgba(245,197,24,0.07);">
-                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#F5C518;">12</span>
-                <span style="font-size:10px;color:var(--text-muted);">Routes</span>
-              </div>
-              <div style="height:64px;border-radius:12px;background:var(--bg-card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
-                <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">6</span>
-                <span style="font-size:10px;color:var(--text-muted);">Languages</span>
-              </div>
-            </div>
-            <!-- Content rows -->
-            <div style="flex:1;background:var(--bg-card);border-radius:12px;border:1px solid rgba(255,255,255,0.05);padding:16px;">
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-                <div style="height:6px;width:80px;background:rgba(0,184,169,0.4);border-radius:3px;"></div>
-                <div style="height:6px;width:48px;background:rgba(255,255,255,0.08);border-radius:3px;margin-left:auto;"></div>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                <div style="display:flex;flex-direction:column;gap:5px;"><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:2px;"></div><div style="height:5px;width:85%;background:rgba(255,255,255,0.06);border-radius:2px;"></div><div style="height:5px;width:70%;background:var(--bg-card);border-radius:2px;"></div></div>
-                <div style="display:flex;flex-direction:column;gap:5px;"><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:2px;"></div><div style="height:5px;width:75%;background:rgba(0,184,169,0.2);border-radius:2px;"></div><div style="height:5px;width:60%;background:var(--bg-card);border-radius:2px;"></div></div>
-              </div>
-            </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;"><div style="font-size:18px;margin-bottom:4px;">🏰</div><div style="font-size:10px;color:var(--text-muted);">Attractions</div></div><div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;"><div style="font-size:18px;margin-bottom:4px;">🗺️</div><div style="font-size:10px;color:var(--text-muted);">Routes</div></div><div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:12px;text-align:center;"><div style="font-size:18px;margin-bottom:4px;">📅</div><div style="font-size:10px;color:var(--text-muted);">Events</div></div>
           </div>
-          <!-- Right panel -->
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <!-- AI chat -->
-            <div style="background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);border-radius:12px;padding:12px;flex:1;">
-              <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
-                <div style="width:16px;height:16px;border-radius:50%;background:#00B8A9;display:flex;align-items:center;justify-content:center;"><div style="width:7px;height:7px;border-radius:50%;background:var(--card-on-alt);"></div></div>
-                <div style="height:5px;width:52px;background:rgba(0,184,169,0.4);border-radius:2px;"></div>
-                <div style="margin-left:auto;width:6px;height:6px;border-radius:50%;background:#00B8A9;animation:pulse 1.5s infinite;"></div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <div style="background:rgba(255,255,255,0.06);border-radius:8px;border-top-left-radius:2px;padding:6px 8px;"><div style="height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin-bottom:3px;"></div><div style="height:4px;width:75%;background:rgba(255,255,255,0.12);border-radius:2px;"></div></div>
-                <div style="background:rgba(0,184,169,0.15);border-radius:8px;border-top-right-radius:2px;padding:6px 8px;margin-left:8px;"><div style="height:4px;background:rgba(0,184,169,0.4);border-radius:2px;margin-bottom:3px;"></div><div style="height:4px;width:65%;background:rgba(0,184,169,0.25);border-radius:2px;"></div></div>
-              </div>
+          <div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.15);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:#00B8A9;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" fill="#fff" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
             </div>
-            <!-- Stat card -->
-            <div style="background:var(--bg-card);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:10px;">
-              <div style="height:5px;width:55%;background:rgba(245,197,24,0.4);border-radius:2px;margin-bottom:6px;"></div>
-              <div style="height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:4px;"></div>
-              <div style="height:4px;width:80%;background:rgba(255,255,255,0.05);border-radius:2px;"></div>
-            </div>
-            <!-- Notification -->
-            <div style="background:var(--bg-card);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:10px;display:flex;align-items:center;gap:8px;">
-              <div style="width:24px;height:24px;border-radius:8px;background:rgba(0,184,169,0.15);flex-shrink:0;"></div>
-              <div style="flex:1;"><div style="height:4px;background:rgba(255,255,255,0.12);border-radius:2px;margin-bottom:4px;"></div><div style="height:4px;width:65%;background:rgba(255,255,255,0.07);border-radius:2px;"></div></div>
-            </div>
+            <div style="font-size:11px;color:var(--text-secondary);">Ask me anything about Sibiu...</div>
           </div>
         </div>
       </div>
-
+      <!-- Floating badges -->
+      <div style="position:absolute;top:-16px;right:-16px;background:rgba(0,184,169,0.9);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:11px;padding:8px 14px;border-radius:99px;box-shadow:0 4px 16px rgba(0,184,169,0.4);">iOS & Android ✓</div>
+      <div style="position:absolute;bottom:-16px;left:-16px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:11px;padding:8px 14px;border-radius:99px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">6 languages</div>
     </div>
   </div>
 </section>
 
-
-<!-- STATS BAR -->
-<section style="border-top:1px solid var(--divider);border-bottom:1px solid var(--nav-border);padding:32px 24px;background:rgba(255,255,255,0.02);">
-  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;">
-    <div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--text-primary);margin-bottom:4px;">13</div>
-      <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Years building<br/>platforms</div>
-    </div>
-    <div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--text-primary);margin-bottom:4px;">40+</div>
-      <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Destinations &amp;<br/>2 national platforms</div>
-    </div>
-    <div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--text-primary);margin-bottom:4px;">€7.4M</div>
-      <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">National project<br/>delivered</div>
-    </div>
-    <div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--text-primary);margin-bottom:4px;">6</div>
-      <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;">Languages supported<br/>out of the box</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- FEATURES — 5 pillars -->
-<section style="padding:96px 24px;">
+<!-- STATS -->
+<section style="padding:0 24px 80px;">
   <div style="max-width:1280px;margin:0 auto;">
-    <div class="fade-up" style="max-width:600px;margin:0 auto 56px;text-align:center;">
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:var(--text-primary);line-height:1.1;margin-bottom:14px;">One platform. Five powerful tools.</h2>
-      <p style="color:var(--text-secondary);font-size:17px;line-height:1.7;">Add your content once. It flows automatically to your website, app, AI agent, WhatsApp and helpdesk.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:14px;">
-
-      <!-- Website — spans 8 -->
-      <div class="feature-card fade-up" style="grid-column:span 8;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;">🌐</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);margin-bottom:8px;">Destination Website</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">A complete multilingual portal, auto-generated from your CMS. Attractions, routes, events, food, services — structured, SEO-optimized and live in minutes.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">6 languages</span>
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Custom domain</span>
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Auto SEO</span>
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Google CDN</span>
-        </div>
+    <div class="fade-up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;">
+      <div style="background:var(--bg);padding:32px;text-align:center;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#00B8A9;margin-bottom:6px;">40+</div>
+        <div style="font-size:13px;color:var(--text-muted);">Destinations live</div>
+      </div><div style="background:var(--bg);padding:32px;text-align:center;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:var(--text-primary);margin-bottom:6px;">13</div>
+        <div style="font-size:13px;color:var(--text-muted);">Years of experience</div>
+      </div><div style="background:var(--bg);padding:32px;text-align:center;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#F5C518;margin-bottom:6px;">€7.4M</div>
+        <div style="font-size:13px;color:var(--text-muted);">Largest project delivered</div>
+      </div><div style="background:var(--bg);padding:32px;text-align:center;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#00B8A9;margin-bottom:6px;">5</div>
+        <div style="font-size:13px;color:var(--text-muted);">Digital channels, one CMS</div>
       </div>
-
-      <!-- Mobile App — spans 4 -->
-      <div class="feature-card fade-up" style="grid-column:span 4;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;">📱</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);margin-bottom:8px;">Native Mobile App</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">iOS &amp; Android apps auto-generated from your content. Offline maps, push notifications, QR scanner.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">iOS &amp; Android</span>
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Offline maps</span>
-        </div>
-      </div>
-
-      <!-- AI Agent — spans 4, teal highlight -->
-      <div class="feature-card fade-up" style="grid-column:span 4;background:rgba(0,184,169,0.07);border:1px solid rgba(0,184,169,0.2);border-radius:20px;padding:32px;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.2);border:1px solid rgba(0,184,169,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;">🤖</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);margin-bottom:8px;">AI Virtual Agent</h3>
-        <p style="color:rgba(0,184,169,0.65);font-size:14px;line-height:1.7;margin-bottom:16px;">Trained on your destination's content. Answers 24/7 in the visitor's language. Escalates to helpdesk when needed.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.1);border:1px solid rgba(0,184,169,0.2);padding:4px 10px;border-radius:99px;">Multilingual</span>
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.1);border:1px solid rgba(0,184,169,0.2);padding:4px 10px;border-radius:99px;">24/7</span>
-        </div>
-      </div>
-
-      <!-- WhatsApp — spans 4 -->
-      <div class="feature-card fade-up" style="grid-column:span 4;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;">💬</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);margin-bottom:8px;">WhatsApp AI</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">Same AI, same content — on WhatsApp Business. Visitors get answers without downloading an app.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Twilio API</span>
-        </div>
-      </div>
-
-      <!-- Helpdesk — spans 4 -->
-      <div class="feature-card fade-up" style="grid-column:span 4;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;">
-        <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;">🎧</div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:20px;color:var(--text-primary);margin-bottom:8px;">Visitor Helpdesk</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:16px;">Chat, WhatsApp, email — all in one unified inbox. Full history, team assignment, fast responses.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span style="font-size:11px;color:rgba(0,184,169,0.8);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:4px 10px;border-radius:99px;">Unified inbox</span>
-        </div>
-      </div>
-
-    </div>
-    <div class="fade-up" style="text-align:center;margin-top:32px;">
-      <a href="eventya-platform-v3.html" style="color:rgba(0,184,169,0.8);font-size:14px;text-decoration:none;">Explore the full platform →</a>
     </div>
   </div>
 </section>
 
-
-<!-- HOW IT WORKS -->
-<section style="padding:96px 24px;border-top:1px solid var(--divider);background:rgba(255,255,255,0.015);">
+<!-- HOW IT WORKS — light -->
+<section style="padding:96px 24px;background:var(--section-alt);border-top:1px solid var(--section-alt-border);">
   <div style="max-width:1280px;margin:0 auto;">
-    <div class="fade-up" style="max-width:560px;margin:0 auto 64px;text-align:center;">
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:var(--text-primary);line-height:1.1;margin-bottom:14px;">Live in three steps.</h2>
-      <p style="color:var(--text-secondary);font-size:17px;line-height:1.7;">No developers. No agencies. No waiting.</p>
+    <div class="fade-up" style="text-align:center;max-width:560px;margin:0 auto 56px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--section-alt-text-3);margin-bottom:12px;font-family:'DM Sans',sans-serif;">How it works</p>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:var(--section-alt-text);line-height:1.1;margin-bottom:14px;">Add once. Appears everywhere.</h2>
+      <p style="color:var(--section-alt-text-2);font-size:16px;line-height:1.75;">One CMS feeds all five visitor-facing channels automatically. No duplication, no inconsistency, no agency dependency.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;">
-      <div class="fade-up" style="text-align:center;">
-        <div style="width:72px;height:72px;border-radius:20px;background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:#00B8A9;">01</span>
-        </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--text-primary);margin-bottom:8px;">Create your platform</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;">Sign up and your destination platform is live in under 10 seconds. No technical setup required.</p>
-      </div>
-      <div class="fade-up" style="text-align:center;">
-        <div style="width:72px;height:72px;border-radius:20px;background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:#00B8A9;">02</span>
-        </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--text-primary);margin-bottom:8px;">Add your content</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;">Add attractions, routes, events, accommodations. Everything publishes automatically to all channels.</p>
-      </div>
-      <div class="fade-up" style="text-align:center;">
-        <div style="width:72px;height:72px;border-radius:20px;background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:#00B8A9;">03</span>
-        </div>
-        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--text-primary);margin-bottom:8px;">Go live on your domain</h3>
-        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;">Point your domain, publish your app. Website and iOS/Android go live together. Done.</p>
+    <div class="fade-up" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
+      <div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:18px;padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:14px;">🌐</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--section-alt-text);margin-bottom:6px;">Website</div>
+        <div style="font-size:12px;color:var(--section-alt-text-2);line-height:1.6;">Responsive, multilingual, SEO-optimised</div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:18px;padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:14px;">📱</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--section-alt-text);margin-bottom:6px;">Mobile App</div>
+        <div style="font-size:12px;color:var(--section-alt-text-2);line-height:1.6;">Native iOS & Android, offline maps</div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:18px;padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:14px;">🤖</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--section-alt-text);margin-bottom:6px;">AI Agent</div>
+        <div style="font-size:12px;color:var(--section-alt-text-2);line-height:1.6;">Answers visitor questions 24/7</div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:18px;padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:14px;">💬</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--section-alt-text);margin-bottom:6px;">WhatsApp</div>
+        <div style="font-size:12px;color:var(--section-alt-text-2);line-height:1.6;">Conversational tourism info</div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:18px;padding:24px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:14px;">🎫</div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;color:var(--section-alt-text);margin-bottom:6px;">Helpdesk</div>
+        <div style="font-size:12px;color:var(--section-alt-text-2);line-height:1.6;">Visitor support & ticketing</div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- CASE STUDY — two national projects -->
-<section style="padding:96px 24px;">
+<!-- CASE STUDY — dark -->
+<section style="padding:96px 24px;border-top:1px solid var(--border);">
   <div style="max-width:1280px;margin:0 auto;">
-    <div style="border-radius:28px;border:1px solid var(--border);overflow:hidden;position:relative;background:rgba(255,255,255,0.02);">
-      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(0,184,169,0.07) 0%,transparent 60%,rgba(245,197,24,0.04) 100%);"></div>
-      <div style="position:relative;padding:56px 64px;">
+    <div class="fade-up" style="text-align:center;max-width:480px;margin:0 auto 48px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-label);margin-bottom:12px;font-family:'DM Sans',sans-serif;">Case study</p>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,40px);color:var(--text-primary);line-height:1.1;">Platforms we've delivered.</h2>
+    </div>
+    <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
 
-        <div class="fade-up" style="text-align:center;margin-bottom:48px;">
-          <div style="display:inline-flex;align-items:center;gap:6px;color:#F5C518;margin-bottom:12px;">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-            <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">Proven at national scale</span>
-          </div>
-          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,40px);color:var(--text-primary);line-height:1.1;margin-bottom:10px;">Two national platforms. One engine.</h2>
-          <p style="color:var(--text-secondary);font-size:15px;max-width:480px;margin:0 auto;">Proven across 40+ destinations in Romania — including two projects delivered at national scale.</p>
+      <div style="background:linear-gradient(135deg,rgba(0,184,169,0.1),rgba(0,184,169,0.03));border:1px solid rgba(0,184,169,0.2);border-radius:22px;padding:36px;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);color:#00B8A9;font-size:10px;padding:4px 10px;border-radius:99px;margin-bottom:20px;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.1em;">National Platform</div>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:var(--text-primary);margin-bottom:8px;">România Atractivă</h3>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:24px;">National tourism platform covering the full breadth of Romania's attractions, routes and destinations. Delivered as part of a €7.4M EU-funded project.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;">
+          <div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.15);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#00B8A9;">€7.4M</div><div style="font-size:11px;color:var(--text-muted);">Project value</div></div><div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.15);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#00B8A9;">275</div><div style="font-size:11px;color:var(--text-muted);">Attractions</div></div><div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.15);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#00B8A9;">12</div><div style="font-size:11px;color:var(--text-muted);">Routes</div></div><div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.15);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#00B8A9;">6</div><div style="font-size:11px;color:var(--text-muted);">Languages</div></div>
         </div>
+        <a href="https://romania-atractiva.ro" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:#00B8A9;font-size:13px;text-decoration:none;border:1px solid rgba(0,184,169,0.25);padding:9px 16px;border-radius:10px;">
+          Visit romania-atractiva.ro →
+        </a>
+      </div>
 
-        <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:22px;padding:36px;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,197,24,0.1);border:1px solid rgba(245,197,24,0.2);color:#F5C518;font-size:10px;padding:4px 10px;border-radius:99px;margin-bottom:20px;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:0.1em;">National App</div>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:var(--text-primary);margin-bottom:8px;">Explore Romania</h3>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.75;margin-bottom:24px;">The official national tourism app for Romania. Available on iOS and Android, featuring offline maps, multilingual content and AI-powered recommendations.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;">
+          <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--text-primary);">iOS + Android</div><div style="font-size:11px;color:var(--text-muted);">Native apps</div></div><div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--text-primary);">Offline</div><div style="font-size:11px;color:var(--text-muted);">Maps & content</div></div><div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--text-primary);">5★</div><div style="font-size:11px;color:var(--text-muted);">App Store rating</div></div><div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:14px;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--text-primary);">National</div><div style="font-size:11px;color:var(--text-muted);">Coverage</div></div>
+        </div>
+        <a href="eventya-destinations.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:13px;text-decoration:none;border:1px solid var(--border);padding:9px 16px;border-radius:10px;">
+          See all destinations →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- România Atractivă -->
-          <div style="background:rgba(0,184,169,0.06);border:1px solid rgba(0,184,169,0.2);border-radius:20px;padding:28px;">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <div style="width:48px;height:48px;border-radius:14px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;font-size:22px;">🇷🇴</div>
-                <div>
-                  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);">România Atractivă</div>
-                  <div style="font-size:11px;color:var(--text-muted);">National Tourism Platform</div>
-                </div>
-              </div>
-              <span style="display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#00B8A9;background:rgba(0,184,169,0.1);border:1px solid rgba(0,184,169,0.2);padding:4px 10px;border-radius:99px;flex-shrink:0;">
-                <span style="width:5px;height:5px;border-radius:50%;background:#00B8A9;animation:pulse 1.5s infinite;"></span>Live
-              </span>
-            </div>
-            <p style="color:var(--text-secondary);font-size:13px;line-height:1.7;margin-bottom:18px;">12 cultural routes, 275 attractions across Romania, multilingual website and mobile app — funded through the EU PNRR program.</p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px;">
-              <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">€7.4M</div><div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Project value</div></div>
-              <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">275</div><div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Attractions</div></div>
-              <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">12</div><div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Routes</div></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;">
-              <span style="font-size:10px;color:rgba(0,184,169,0.75);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:3px 9px;border-radius:99px;">Website</span>
-              <span style="font-size:10px;color:rgba(0,184,169,0.75);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:3px 9px;border-radius:99px;">iOS &amp; Android</span>
-              <span style="font-size:10px;color:rgba(0,184,169,0.75);background:rgba(0,184,169,0.08);border:1px solid var(--border-teal);padding:3px 9px;border-radius:99px;">6 languages</span>
-              <span style="font-size:10px;color:rgba(245,197,24,0.8);background:rgba(245,197,24,0.08);border:1px solid rgba(245,197,24,0.18);padding:3px 9px;border-radius:99px;">EU PNRR</span>
-            </div>
-            <a href="https://romania-atractiva.ro" target="_blank" style="color:rgba(0,184,169,0.8);font-size:13px;text-decoration:none;">Visit platform →</a>
+<!-- FOR DMOS — light -->
+<section style="padding:96px 24px;background:var(--section-alt);border-top:1px solid var(--section-alt-border);">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+    <div class="fade-up">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--section-alt-text-3);margin-bottom:12px;font-family:'DM Sans',sans-serif;">Built for DMOs</p>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:var(--section-alt-text);line-height:1.1;margin-bottom:20px;">No developers. No agencies. No bottlenecks.</h2>
+      <p style="color:var(--section-alt-text-2);font-size:16px;line-height:1.8;margin-bottom:32px;">Eventya is designed for destination managers, not IT departments. Add an attraction, publish an event, update opening hours — it takes minutes, not tickets.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-
-          <!-- Explore Romania -->
-          <div style="background:var(--stat-bg);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px;">
-            <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;">
-              <div style="display:flex;align-items:center;gap:12px;">
-                <div style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:22px;">🗺️</div>
-                <div>
-                  <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);">Explore Romania</div>
-                  <div style="font-size:11px;color:var(--text-muted);">National Mobile App</div>
-                </div>
-              </div>
-              <span style="display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#00B8A9;background:rgba(0,184,169,0.1);border:1px solid rgba(0,184,169,0.2);padding:4px 10px;border-radius:99px;flex-shrink:0;">
-                <span style="width:5px;height:5px;border-radius:50%;background:#00B8A9;animation:pulse 1.5s infinite;"></span>Live
-              </span>
-            </div>
-            <p style="color:var(--text-secondary);font-size:13px;line-height:1.7;margin-bottom:18px;">The official national tourism app for Romania — covering destinations across the entire country, available on iOS and Android, built on the Eventya platform.</p>
-            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px;">
-              <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">40+</div><div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Destinations</div></div>
-              <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#00B8A9;">National</div><div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Coverage</div></div>
-            </div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;">
-              <span style="font-size:10px;color:var(--text-secondary);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:3px 9px;border-radius:99px;">iOS</span>
-              <span style="font-size:10px;color:var(--text-secondary);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:3px 9px;border-radius:99px;">Android</span>
-              <span style="font-size:10px;color:var(--text-secondary);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:3px 9px;border-radius:99px;">Offline maps</span>
-              <span style="font-size:10px;color:var(--text-secondary);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:3px 9px;border-radius:99px;">Multilingual</span>
-            </div>
-            <div style="display:flex;gap:16px;">
-              <a href="#" style="color:var(--text-secondary);font-size:13px;text-decoration:none;">🍎 App Store →</a>
-              <a href="#" style="color:var(--text-secondary);font-size:13px;text-decoration:none;">🤖 Google Play →</a>
-            </div>
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">Platform live in under 30 minutes</span>
+        </div><div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
           </div>
-
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">No coding, no agency dependency</span>
+        </div><div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">GDPR-compliant from day one</span>
+        </div><div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">EU data hosting — Frankfurt, Germany</span>
+        </div><div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">Free until you connect your domain</span>
+        </div><div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="width:22px;height:22px;border-radius:6px;background:rgba(0,184,169,0.15);border:1px solid rgba(0,184,169,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+            <svg width="12" height="12" fill="none" stroke="#00B8A9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <span style="font-size:14px;color:var(--section-alt-text-2);line-height:1.65;">Cancel anytime, export your data</span>
+        </div>
+      </div>
+    </div>
+    <div class="fade-up" style="display:flex;flex-direction:column;gap:12px;">
+      <div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:16px;padding:20px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="font-size:24px;flex-shrink:0;">⚡</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:var(--section-alt-text);margin-bottom:4px;">10 seconds to create</div>
+          <div style="font-size:13px;color:var(--section-alt-text-2);line-height:1.6;">Sign up, name your destination. Your platform exists instantly on a free test URL.</div>
+        </div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:16px;padding:20px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="font-size:24px;flex-shrink:0;">🌍</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:var(--section-alt-text);margin-bottom:4px;">Multilingual out of the box</div>
+          <div style="font-size:13px;color:var(--section-alt-text-2);line-height:1.6;">Manage content in up to 6 languages from a single dashboard. No separate sites.</div>
+        </div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:16px;padding:20px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="font-size:24px;flex-shrink:0;">📊</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:var(--section-alt-text);margin-bottom:4px;">Analytics that matter</div>
+          <div style="font-size:13px;color:var(--section-alt-text-2);line-height:1.6;">See where visitors come from, what they search for, and which content performs.</div>
+        </div>
+      </div><div style="background:var(--card-alt);border:1px solid var(--card-alt-border);border-radius:16px;padding:20px;display:flex;align-items:flex-start;gap:14px;">
+        <div style="font-size:24px;flex-shrink:0;">🔒</div>
+        <div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;color:var(--section-alt-text);margin-bottom:4px;">European by design</div>
+          <div style="font-size:13px;color:var(--section-alt-text-2);line-height:1.6;">GDPR consent, EU hosting, signed DPA — everything public institutions need.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- PRICING TEASER -->
-<section style="padding:96px 24px;border-top:1px solid var(--divider);">
-  <div style="max-width:1280px;margin:0 auto;">
-    <div class="fade-up" style="max-width:560px;margin:0 auto 48px;text-align:center;">
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);color:var(--text-primary);line-height:1.1;margin-bottom:14px;">Start free.<br/>Go live when you're ready.</h2>
-      <p style="color:var(--text-secondary);font-size:17px;line-height:1.7;">No credit card. No time limit. Your platform, your pace.</p>
+<!-- CTA FINAL -->
+<section style="padding:96px 24px;border-top:1px solid var(--border);text-align:center;">
+  <div style="max-width:560px;margin:0 auto;" class="fade-up">
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--text-primary);line-height:1.05;margin-bottom:16px;">Your destination deserves better.</h2>
+    <p style="color:var(--text-secondary);font-size:16px;line-height:1.75;margin-bottom:36px;">Start free. Add your content. Go live when you're ready.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:15px 32px;border-radius:14px;text-decoration:none;">
+        Create your destination free
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+      <a href="eventya-pricing.html" style="display:inline-flex;align-items:center;gap:8px;color:var(--text-secondary);font-size:14px;text-decoration:none;padding:14px 20px;border:1px solid var(--border);border-radius:14px;">
+        See pricing →
+      </a>
     </div>
-    <div class="fade-up" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;margin:0 auto;">
-      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;">
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:36px;color:var(--text-primary);margin-bottom:4px;">€0</div>
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Until custom domain</div>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.55);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Full platform access</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.55);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No credit card required</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.55);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No time limit</div>
-        </div>
-        <a href="#" style="display:block;text-align:center;border:1px solid rgba(255,255,255,0.15);color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;padding:13px;border-radius:12px;text-decoration:none;">Get started free →</a>
-      </div>
-      <div style="background:rgba(0,184,169,0.07);border:1px solid rgba(0,184,169,0.25);border-radius:20px;padding:32px;position:relative;">
-        <div style="position:absolute;top:16px;right:16px;font-size:10px;color:#00B8A9;background:rgba(0,184,169,0.12);border:1px solid rgba(0,184,169,0.2);padding:4px 10px;border-radius:99px;">Most popular</div>
-        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:36px;color:var(--text-primary);margin-bottom:4px;">€170<span style="font-size:16px;font-weight:400;color:var(--text-muted);">/mo</span></div>
-        <div style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Go live on your domain</div>
-        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Custom domain + SSL</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>iOS &amp; Android apps</div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,0.65);"><svg width="14" height="14" fill="#00B8A9" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI agent included</div>
-        </div>
-        <a href="eventya-pricing.html" style="display:block;text-align:center;background:#00B8A9;color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:14px;padding:13px;border-radius:12px;text-decoration:none;">See all plans →</a>
-      </div>
-    </div>
+    <p style="color:var(--text-muted);font-size:12px;margin-top:16px;">No credit card. No contract. Free until you go live.</p>
   </div>
 </section>
 
-
-<!-- FINAL CTA -->
-<section style="padding:96px 24px;border-top:1px solid var(--divider);text-align:center;">
-  <div style="max-width:600px;margin:0 auto;" class="fade-up">
-    <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,48px);color:var(--text-primary);line-height:1.1;margin-bottom:18px;">Your destination deserves<br/>a digital home.</h2>
-    <p style="color:var(--text-secondary);font-size:17px;margin-bottom:36px;">Join 40+ destinations already live on Eventya.</p>
-    <a href="#" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:var(--text-primary);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;padding:18px 36px;border-radius:18px;text-decoration:none;box-shadow:0 8px 40px rgba(0,184,169,0.25);">
-      Create your destination — it's free →
-    </a>
-    <p style="margin-top:18px;color:var(--text-label);font-size:12px;">No credit card. No time limit. No commitment.</p>
-  </div>
-</section>
-
-
-<!-- FOOTER -->
-
-<footer style="border-top:1px solid var(--footer-border);padding:56px 24px 40px;background:var(--footer-bg);">
+<footer style="border-top:1px solid var(--border);padding:56px 24px 40px;background:var(--footer-bg);">
   <div style="max-width:1280px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
       <div>
         <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:14px;">
           <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">eventya</span>
-          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Neighbourhood</span>
+          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Clarity</span>
         </div>
         <p style="color:var(--footer-text);font-size:13px;line-height:1.7;max-width:240px;">Destination Management Platform for European DMOs.</p>
       </div>
@@ -582,11 +388,11 @@
         </div>
       </div>
       <div>
-        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Company</h4>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Resources</h4>
         <div style="display:flex;flex-direction:column;gap:10px;">
           <a href="eventya-destinations.html" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Destinations</a>
           <a href="eventya-about.html" style="color:var(--footer-link);font-size:13px;text-decoration:none;">About</a>
-          <a href="eventya-help.html" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Help</a>
+          <a href="eventya-help.html" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Help & FAQ</a>
         </div>
       </div>
       <div>
@@ -597,7 +403,7 @@
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid var(--footer-border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
       <p style="color:var(--footer-copy);font-size:11px;">© 2026 Eventya. All rights reserved.</p>
       <div style="display:flex;gap:20px;">
         <a href="eventya-privacy.html" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Privacy</a>
@@ -605,41 +411,38 @@
       </div>
     </div>
   </div>
-</footer>
-
-
-
-<script>
-  function applyTheme(t) {
+</footer><script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script><script>
+  function toggleTheme() {
     const html = document.documentElement;
-    const track = document.getElementById('toggle-track');
-    const thumb = document.getElementById('toggle-thumb');
     const label = document.getElementById('theme-label');
-    if (t === 'light') {
-      html.setAttribute('data-theme','light');
-      if(track) track.style.background = '#00B8A9';
-      if(thumb) thumb.style.transform = 'translateX(16px)';
-      if(label) label.textContent = 'Light';
-    } else {
+    if (html.getAttribute('data-theme') === 'light') {
       html.removeAttribute('data-theme');
-      if(track) track.style.background = 'rgba(0,184,169,0.2)';
-      if(thumb) thumb.style.transform = 'translateX(0)';
-      if(label) label.textContent = 'Dark';
+      if (label) label.textContent = 'Dark';
+      localStorage.setItem('eventya-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'Light';
+      localStorage.setItem('eventya-theme', 'light');
     }
   }
-  function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'light' ? 'dark' : 'light';
-    localStorage.setItem('eventya-theme', next);
-    applyTheme(next);
+  const saved = localStorage.getItem('eventya-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = 'Light';
+    });
   }
-  const saved = localStorage.getItem('eventya-theme') || 'dark';
-  if (saved === 'light') applyTheme('light');
 </script>
-
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.fade-up, .scroll-observer').forEach(el => obs.observe(el));
-  window.ad
+</body>
+</html>
