@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventya — Design Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #060d14;
+      --bg-2: #0a1a18;
+      --bg-card: rgba(255,255,255,0.025);
+      --border: rgba(255,255,255,0.07);
+      --border-teal: rgba(0,184,169,0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.5);
+      --text-muted: rgba(255,255,255,0.35);
+      --text-label: rgba(255,255,255,0.25);
+      --section-alt: #0a1a18;
+      --section-alt-border: rgba(0,184,169,0.12);
+      --section-alt-text: rgba(255,255,255,0.92);
+      --section-alt-text-2: rgba(255,255,255,0.55);
+      --section-alt-text-3: rgba(0,184,169,0.85);
+      --card-alt: rgba(255,255,255,0.04);
+      --card-alt-border: rgba(0,184,169,0.15);
+      --card-alt-text: rgba(255,255,255,0.9);
+      --card-alt-subtext: rgba(255,255,255,0.5);
+      --stat-bg: rgba(255,255,255,0.03);
+      --stat-border: rgba(255,255,255,0.07);
+      --nav-bg: rgba(6,13,20,0.92);
+      --nav-border: rgba(255,255,255,0.05);
+      --tech-row-bg: rgba(255,255,255,0.03);
+      --tech-row-border: rgba(0,184,169,0.08);
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255,255,255,0.3);
+      --footer-text: rgba(255,255,255,0.3);
+      --footer-link: rgba(255,255,255,0.4);
+      --footer-label: rgba(255,255,255,0.3);
+      --footer-copy: rgba(255,255,255,0.15);
+      --footer-bg: #060d14;
+    }
+    [data-theme="light"] {
+      --bg: #f8fffe;
+      --bg-2: #f0fdfa;
+      --bg-card: #ffffff;
+      --border: rgba(0,184,169,0.12);
+      --border-teal: rgba(0,184,169,0.25);
+      --text-primary: #134e4a;
+      --text-secondary: #1e6b5e;
+      --text-muted: #0d9488;
+      --text-label: #5eead4;
+      --section-alt: #ffffff;
+      --section-alt-border: rgba(0,184,169,0.1);
+      --section-alt-text: #134e4a;
+      --section-alt-text-2: #1e6b5e;
+      --section-alt-text-3: #0d9488;
+      --card-alt: #f0fdfa;
+      --card-alt-border: rgba(0,184,169,0.2);
+      --card-alt-text: #134e4a;
+      --card-alt-subtext: #1e6b5e;
+      --stat-bg: rgba(0,184,169,0.06);
+      --stat-border: rgba(0,184,169,0.15);
+      --nav-bg: rgba(248,255,254,0.95);
+      --nav-border: rgba(0,184,169,0.12);
+      --tech-row-bg: #ffffff;
+      --tech-row-border: rgba(0,184,169,0.12);
+      --input-bg: #ffffff;
+      --input-border: rgba(0,184,169,0.25);
+      --input-text: #134e4a;
+      --input-placeholder: rgba(0,184,169,0.4);
+      --footer-text: #1e6b5e;
+      --footer-link: #0d9488;
+      --footer-label: #5eead4;
+      --footer-copy: rgba(0,184,169,0.4);
+      --footer-bg: #f0fdfa;
+    }
+
+    * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px); background-size: 48px 48px; }
+    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);} 70%{box-shadow:0 0 0 12px rgba(0,184,169,0);} 100%{box-shadow:0 0 0 0 rgba(0,184,169,0);} }
+    .btn-pulse { animation: pulse-ring 2.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot { animation: pulse 2s infinite; }
+    .theme-toggle { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:99px; padding:4px 10px 4px 6px; cursor:pointer; }
+    .toggle-track { width:36px; height:20px; border-radius:99px; background:rgba(0,184,169,0.2); position:relative; transition:background 0.3s; }
+    [data-theme="light"] .toggle-track { background:#00B8A9; }
+    .toggle-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.3s; }
+    [data-theme="light"] .toggle-thumb { transform:translateX(16px); }
+    .toggle-label { font-size:11px; color:var(--text-secondary); font-family:'DM Sans',sans-serif; }
+  </style>
+</head>
+<body>
+<div style="min-height:100vh;padding:64px 24px;">
+  <div style="max-width:1000px;margin:0 auto;">
+
+    <!-- Header -->
+    <div class="fade-up" style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:20px;">
+      <div>
+        <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:16px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
+          <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+        </div>
+        <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--text-primary);margin-bottom:8px;">Website Design Preview</h1>
+        <p style="color:var(--text-secondary);font-size:15px;">HTML prototypes for review. Not final code — will be implemented in Rails.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+        <button onclick="toggleTheme()" class="theme-toggle">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="theme-label">Dark</span>
+        </button>
+        <div style="background:rgba(0,184,169,0.08);border:1px solid rgba(0,184,169,0.2);border-radius:10px;padding:8px 14px;font-size:12px;color:var(--text-secondary);">
+          12 pages · March 2026
+        </div>
+      </div>
+    </div>
+
+    <!-- Notes banner -->
+    <div class="fade-up" style="background:rgba(245,197,24,0.06);border:1px solid rgba(245,197,24,0.2);border-radius:14px;padding:16px 20px;margin-bottom:40px;display:flex;gap:12px;align-items:flex-start;">
+      <span style="font-size:18px;flex-shrink:0;">📋</span>
+      <div>
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;color:var(--text-primary);margin-bottom:4px;">Notes for reviewers</div>
+        <div style="font-size:13px;color:var(--text-secondary);line-height:1.65;">These are static HTML prototypes — all pages have a working dark/light mode toggle (top-right of each page). Navigation links between pages work within this preview. Content marked with ← needs to be replaced with real data (team photos, YouTube URLs, destination logos).</div>
+      </div>
+    </div>
+
+    
+    <div class="fade-up" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#00B8A9;flex-shrink:0;"></div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-label);">Main Pages</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <a href="eventya-homepage-v3.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Homepage</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Hero, features, case studies, CTA</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-homepage-v3.html →</div>
+        </a>
+        <a href="eventya-platform-v3.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Platform</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">DMS Core + 5 digital channels</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-platform-v3.html →</div>
+        </a>
+        <a href="eventya-destinations.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Destinations</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">România Atractivă + portfolio</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-destinations.html →</div>
+        </a>
+        <a href="eventya-pricing.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Pricing</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Starter / Destination / Regional + Managed</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-pricing.html →</div>
+        </a>
+        <a href="eventya-about.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">About</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Mission, team, tech stack</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-about.html →</div>
+        </a>
+        <a href="eventya-help.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Help & FAQ</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Tutorials, FAQ, support form</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-help.html →</div>
+        </a>
+      </div>
+    </div>
+    <div class="fade-up" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:#F5C518;flex-shrink:0;"></div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-label);">Legal Pages</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <a href="eventya-privacy.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Privacy Policy</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">GDPR privacy policy</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-privacy.html →</div>
+        </a>
+        <a href="eventya-terms.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Terms of Service</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Terms & conditions</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-terms.html →</div>
+        </a>
+        <a href="eventya-cookies.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Cookie Policy</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Cookie usage & consent</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-cookies.html →</div>
+        </a>
+        <a href="eventya-dpa.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Data Processing Agreement</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Art. 28 GDPR DPA</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-dpa.html →</div>
+        </a>
+      </div>
+    </div>
+    <div class="fade-up" style="margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0;"></div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.15em;color:var(--text-label);">Variants / Drafts</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+        <a href="eventya-destinations-photo.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Destinations (photo cards)</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Variant with photo cards</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-destinations-photo.html →</div>
+        </a>
+        <a href="eventya-platform-v2.html" style="display:block;text-decoration:none;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform 0.15s,border-color 0.15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(0,184,169,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:var(--text-primary);margin-bottom:5px;">Platform v2</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Earlier platform version</div>
+          <div style="font-size:11px;color:#00B8A9;font-family:'DM Sans',sans-serif;">eventya-platform-v2.html →</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-up" style="border-top:1px solid var(--border);padding-top:24px;text-align:center;">
+      <p style="color:var(--text-muted);font-size:12px;">Eventya · Digital Neighbourhood SRL · eventya.net</p>
+    </div>
+  </div>
+</div>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script>
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const label = document.getElementById('theme-label');
+    if (html.getAttribute('data-theme') === 'light') {
+      html.removeAttribute('data-theme');
+      if (label) label.textContent = 'Dark';
+      localStorage.setItem('eventya-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'Light';
+      localStorage.setItem('eventya-theme', 'light');
+    }
+  }
+  const saved = localStorage.getItem('eventya-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = 'Light';
+    });
+  }
+</script>
+</body>
+</html>

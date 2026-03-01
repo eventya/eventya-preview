@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventya — Terms of Service</title>
+  <meta name="description" content="Eventya Terms of Service" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060d14;
+      --bg-2: #0a1a18;
+      --bg-card: rgba(255,255,255,0.025);
+      --border: rgba(255,255,255,0.07);
+      --border-teal: rgba(0,184,169,0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.5);
+      --text-muted: rgba(255,255,255,0.35);
+      --text-label: rgba(255,255,255,0.25);
+      --section-alt: #0a1a18;
+      --section-alt-border: rgba(0,184,169,0.12);
+      --section-alt-text: rgba(255,255,255,0.92);
+      --section-alt-text-2: rgba(255,255,255,0.55);
+      --section-alt-text-3: rgba(0,184,169,0.85);
+      --card-alt: rgba(255,255,255,0.04);
+      --card-alt-border: rgba(0,184,169,0.15);
+      --card-alt-text: rgba(255,255,255,0.9);
+      --card-alt-subtext: rgba(255,255,255,0.5);
+      --stat-bg: rgba(255,255,255,0.03);
+      --stat-border: rgba(255,255,255,0.07);
+      --nav-bg: rgba(6,13,20,0.92);
+      --nav-border: rgba(255,255,255,0.05);
+      --tech-row-bg: rgba(255,255,255,0.03);
+      --tech-row-border: rgba(0,184,169,0.08);
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255,255,255,0.3);
+      --footer-text: rgba(255,255,255,0.3);
+      --footer-link: rgba(255,255,255,0.4);
+      --footer-label: rgba(255,255,255,0.3);
+      --footer-copy: rgba(255,255,255,0.15);
+      --footer-bg: #060d14;
+    }
+    [data-theme="light"] {
+      --bg: #f8fffe;
+      --bg-2: #f0fdfa;
+      --bg-card: #ffffff;
+      --border: rgba(0,184,169,0.12);
+      --border-teal: rgba(0,184,169,0.25);
+      --text-primary: #134e4a;
+      --text-secondary: #1e6b5e;
+      --text-muted: #0d9488;
+      --text-label: #5eead4;
+      --section-alt: #ffffff;
+      --section-alt-border: rgba(0,184,169,0.1);
+      --section-alt-text: #134e4a;
+      --section-alt-text-2: #1e6b5e;
+      --section-alt-text-3: #0d9488;
+      --card-alt: #f0fdfa;
+      --card-alt-border: rgba(0,184,169,0.2);
+      --card-alt-text: #134e4a;
+      --card-alt-subtext: #1e6b5e;
+      --stat-bg: rgba(0,184,169,0.06);
+      --stat-border: rgba(0,184,169,0.15);
+      --nav-bg: rgba(248,255,254,0.95);
+      --nav-border: rgba(0,184,169,0.12);
+      --tech-row-bg: #ffffff;
+      --tech-row-border: rgba(0,184,169,0.12);
+      --input-bg: #ffffff;
+      --input-border: rgba(0,184,169,0.25);
+      --input-text: #134e4a;
+      --input-placeholder: rgba(0,184,169,0.4);
+      --footer-text: #1e6b5e;
+      --footer-link: #0d9488;
+      --footer-label: #5eead4;
+      --footer-copy: rgba(0,184,169,0.4);
+      --footer-bg: #f0fdfa;
+    }
+
+    * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px); background-size: 48px 48px; }
+    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);} 70%{box-shadow:0 0 0 12px rgba(0,184,169,0);} 100%{box-shadow:0 0 0 0 rgba(0,184,169,0);} }
+    .btn-pulse { animation: pulse-ring 2.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot { animation: pulse 2s infinite; }
+    .theme-toggle { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:99px; padding:4px 10px 4px 6px; cursor:pointer; }
+    .toggle-track { width:36px; height:20px; border-radius:99px; background:rgba(0,184,169,0.2); position:relative; transition:background 0.3s; }
+    [data-theme="light"] .toggle-track { background:#00B8A9; }
+    .toggle-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.3s; }
+    [data-theme="light"] .toggle-thumb { transform:translateX(16px); }
+    .toggle-label { font-size:11px; color:var(--text-secondary); font-family:'DM Sans',sans-serif; }
+  </style>
+</head>
+<body><nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--nav-border);background:var(--nav-bg);backdrop-filter:blur(12px);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="/" style="display:flex;flex-direction:column;line-height:1;text-decoration:none;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
+        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="/platform" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Platform</a>
+        <a href="/destinations" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Destinations</a>
+        <a href="/pricing" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Pricing</a>
+        <a href="/about" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">About</a>
+        <a href="/help" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Help</a>
+        
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button onclick="toggleTheme()" class="theme-toggle" title="Toggle dark/light mode">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="theme-label">Dark</span>
+        </button>
+        <a href="/login" style="font-size:13px;color:var(--text-secondary);text-decoration:none;padding:8px 16px;">Sign in</a>
+        <a href="/get-started" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 20px;border-radius:12px;text-decoration:none;">
+          Create your destination
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section style="padding:120px 24px 96px;">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="fade-up" style="margin-bottom:48px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-label);margin-bottom:12px;font-family:'DM Sans',sans-serif;">Legal</p>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--text-primary);line-height:1.05;margin-bottom:12px;">Terms of Service</h1>
+      <p style="color:var(--text-muted);font-size:14px;">Last updated: March 1, 2026</p>
+    </div>
+    <div style="color:var(--text-secondary);font-size:15px;line-height:1.85;" class="fade-up legal-body">
+
+<div class="highlight">
+  <strong>Summary:</strong> By using Eventya you agree to these terms. You own your content. We own the platform. You can cancel anytime. We can suspend accounts that violate these terms. For the full legal detail, read on.
+</div>
+
+<h2>1. Agreement and Parties</h2>
+<p>These Terms of Service ("Terms") constitute a legally binding agreement between <strong>Digital Neighbourhood SRL</strong> ("Eventya", "we", "us", "our"), a company incorporated in Romania, and the entity or individual ("Customer", "you") accessing or using the Eventya platform at eventya.net.</p>
+<p>By creating an account or using the platform, you confirm that you have read, understood and agree to these Terms and our <a href="/privacy">Privacy Policy</a>. If you are accepting on behalf of an organisation, you represent that you have authority to bind that organisation.</p>
+
+<h2>2. The Service</h2>
+<p>Eventya provides a Software-as-a-Service (SaaS) Destination Management Platform that enables Destination Management Organisations (DMOs) and similar entities to create and manage multilingual tourism websites, native mobile apps, AI virtual agents, WhatsApp channels and visitor helpdesks from a single content management system.</p>
+<p>The specific features available depend on your subscription plan. We reserve the right to modify, add or discontinue features with reasonable notice.</p>
+
+<h2>3. Accounts and Registration</h2>
+<p>You must provide accurate, current and complete information during registration and keep it updated. You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You must notify us immediately at <a href="/cdn-cgi/l/email-protection#365e535a5a597653405358424f5718585342"><span class="__cf_email__" data-cfemail="6109040d0d0e210417040f1518004f0f0415">[email&#160;protected]</span></a> of any unauthorized use of your account.</p>
+<p>You must be at least 18 years old and have legal capacity to enter into contracts. Accounts may not be shared with third parties without our written consent.</p>
+
+<h2>4. Subscriptions, Pricing and Payment</h2>
+<h3>4.1 Free tier</h3>
+<p>You may use the platform free of charge on a Eventya-hosted test URL (e.g. yourplatform.eventya.net) for an indefinite period. No payment is required for the free tier.</p>
+
+<h3>4.2 Paid subscriptions</h3>
+<p>A paid subscription is required to connect a custom domain and access all platform features. Subscriptions are billed monthly or annually in advance. Current pricing is published at <a href="/pricing">eventya.net/pricing</a>.</p>
+
+<h3>4.3 Payment</h3>
+<p>Payments are processed by Stripe. By providing payment details, you authorise us to charge the applicable fees on the billing cycle start date. All prices are in EUR and exclude VAT unless stated otherwise. VAT is added at the applicable rate for your jurisdiction.</p>
+
+<h3>4.4 Cancellation and refunds</h3>
+<p>You may cancel your subscription at any time from your account settings. Cancellation takes effect at the end of the current billing period. We do not provide refunds for partial periods, except where required by applicable law or at our sole discretion in exceptional circumstances.</p>
+
+<h3>4.5 Late payment</h3>
+<p>If a payment fails, we will notify you and retry the charge. If payment remains outstanding for 14 days, we may suspend access to your paid features. Access is restored promptly upon successful payment.</p>
+
+<h2>5. Your Content</h2>
+<p>You retain full ownership of all content you upload or create using the platform ("Customer Content"), including texts, images, videos and data. By uploading Customer Content, you grant Eventya a limited, non-exclusive, worldwide licence to host, store, transmit and display that content solely to provide the service to you.</p>
+<p>You are solely responsible for ensuring that Customer Content:</p>
+<ul>
+  <li>Does not infringe the intellectual property rights of third parties</li>
+  <li>Does not contain unlawful, defamatory, obscene or harmful material</li>
+  <li>Complies with all applicable data protection laws, including GDPR, when it contains personal data</li>
+  <li>Accurately represents the destination and does not mislead visitors</li>
+</ul>
+<p>You may export all your Customer Content at any time via the CMS export function (CSV/JSON). Upon account termination, we will make your content available for export for 30 days, after which it will be deleted.</p>
+
+<h2>6. Intellectual Property</h2>
+<p>The Eventya platform, including its software, design, trademarks, logos and documentation, is owned by Digital Neighbourhood SRL and protected by intellectual property laws. These Terms do not grant you any ownership rights in the platform.</p>
+<p>You may not copy, modify, reverse engineer, decompile, or create derivative works based on the platform, nor remove any proprietary notices.</p>
+
+<h2>7. Acceptable Use</h2>
+<p>You agree not to use the platform to:</p>
+<ul>
+  <li>Transmit spam, malware or any harmful code</li>
+  <li>Attempt to gain unauthorized access to the platform or other accounts</li>
+  <li>Scrape, crawl or extract data from the platform without our written permission</li>
+  <li>Use the platform in a way that violates any applicable law or regulation</li>
+  <li>Impersonate another person or organisation</li>
+  <li>Engage in any activity that disrupts or interferes with the platform's operation</li>
+  <li>Resell or sublicense access to the platform without our written consent</li>
+</ul>
+<p>We reserve the right to suspend or terminate accounts that violate these provisions, with or without notice depending on the severity of the violation.</p>
+
+<h2>8. Data Protection</h2>
+<p>Each party shall comply with applicable data protection legislation. Where Eventya processes personal data on your behalf (e.g. end-visitor data on your destination platform), the parties' obligations are governed by our <a href="/dpa">Data Processing Agreement</a>, which is incorporated into these Terms by reference and applies to all customers.</p>
+
+<h2>9. Availability and Support</h2>
+<p>We target 99.5% monthly uptime for paid plans, excluding scheduled maintenance (announced at least 48 hours in advance) and events beyond our reasonable control. We do not guarantee specific response times but aim to address critical issues within 4 business hours and general support within 1 business day.</p>
+<p>Planned maintenance will be communicated via email and, where possible, scheduled outside peak hours (European business hours).</p>
+
+<h2>10. Limitation of Liability</h2>
+<p>To the maximum extent permitted by applicable law:</p>
+<ul>
+  <li>Eventya's total liability to you for any claim arising under these Terms shall not exceed the fees paid by you in the 12 months preceding the claim.</li>
+  <li>We shall not be liable for indirect, incidental, special, consequential or punitive damages, including loss of profits, data, or business opportunity.</li>
+  <li>We shall not be liable for any damage caused by events outside our reasonable control, including internet outages, force majeure events, or third-party service failures.</li>
+</ul>
+<p>Nothing in these Terms limits liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded under applicable law.</p>
+
+<h2>11. Warranties and Disclaimers</h2>
+<p>We provide the platform "as is" and "as available". We warrant that we will use commercially reasonable efforts to provide a functional, secure service. We do not warrant that the platform will be error-free or uninterrupted.</p>
+<p>You warrant that you have the right to use and upload all Customer Content, and that doing so does not violate any third-party rights or applicable law.</p>
+
+<h2>12. Termination</h2>
+<p>Either party may terminate the agreement: (a) you, by cancelling your subscription at any time; (b) us, for convenience with 30 days' written notice; (c) either party, immediately if the other commits a material breach that is not remedied within 14 days of written notice.</p>
+<p>We may suspend or terminate accounts immediately without notice in cases of serious breach, illegal activity, or non-payment beyond the grace period.</p>
+<p>Upon termination, your right to use the platform ceases. Provisions of these Terms that by their nature should survive termination (including intellectual property, liability limitations, and governing law) shall survive.</p>
+
+<h2>13. Governing Law and Disputes</h2>
+<p>These Terms are governed by the laws of Romania and, where applicable, European Union law. Any dispute shall first be addressed through good-faith negotiation. If unresolved after 30 days, disputes shall be submitted to the competent courts of Bucharest, Romania, unless mandatory consumer protection laws in your jurisdiction require otherwise.</p>
+
+<h2>14. Changes to These Terms</h2>
+<p>We may update these Terms from time to time. We will notify you by email at least 30 days before material changes take effect. Continued use of the platform after the effective date constitutes acceptance of the revised Terms. If you do not agree, you may cancel your subscription before the changes take effect.</p>
+
+<h2>15. Miscellaneous</h2>
+<p>These Terms, together with the Privacy Policy, Cookie Policy and DPA, constitute the entire agreement between the parties regarding the platform and supersede all prior agreements. If any provision is found unenforceable, the remaining provisions continue in full force. Our failure to enforce any provision is not a waiver of our right to do so in the future.</p>
+<p>Notices to Eventya must be sent to <a href="/cdn-cgi/l/email-protection#0c60696b6d604c697a696278756d22626978"><span class="__cf_email__" data-cfemail="016d6466606d416477646f7578602f6f6475">[email&#160;protected]</span></a> or by post to our registered address.</p>
+
+    </div>
+  </div>
+</section>
+<footer style="border-top:1px solid var(--border);padding:56px 24px 40px;background:var(--footer-bg);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
+      <div>
+        <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:14px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">eventya</span>
+          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Neighbourhood</span>
+        </div>
+        <p style="color:var(--footer-text);font-size:13px;line-height:1.7;max-width:240px;">Destination Management Platform for European DMOs.</p>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Product</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/platform" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Platform</a>
+          <a href="/pricing" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Pricing</a>
+          <a href="/get-started" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Get started</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Resources</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/destinations" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Destinations</a>
+          <a href="/about" style="color:var(--footer-link);font-size:13px;text-decoration:none;">About</a>
+          <a href="/help" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Help & FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/cdn-cgi/l/email-protection#e48c8188888ba48192818a909d85ca8a8190" style="color:var(--footer-link);font-size:13px;text-decoration:none;"><span class="__cf_email__" data-cfemail="93fbf6fffffcd3f6e5f6fde7eaf2bdfdf6e7">[email&#160;protected]</span></a>
+          <a href="https://eventya.net" style="color:var(--footer-link);font-size:13px;text-decoration:none;">eventya.net</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
+      <p style="color:var(--footer-copy);font-size:11px;">© 2026 Eventya. All rights reserved.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Privacy</a>
+        <a href="/terms" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script><script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const label = document.getElementById('theme-label');
+    if (html.getAttribute('data-theme') === 'light') {
+      html.removeAttribute('data-theme');
+      if (label) label.textContent = 'Dark';
+      localStorage.setItem('eventya-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'Light';
+      localStorage.setItem('eventya-theme', 'light');
+    }
+  }
+  const saved = localStorage.getItem('eventya-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = 'Light';
+    });
+  }
+</script>
+<style>
+  .legal-body h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:20px; color:var(--text-primary); margin:40px 0 12px; padding-top:8px; border-top:1px solid var(--border); }
+  .legal-body h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:16px; color:var(--text-primary); margin:24px 0 8px; }
+  .legal-body p { margin:0 0 14px; }
+  .legal-body ul { margin:0 0 14px; padding-left:20px; }
+  .legal-body li { margin-bottom:6px; }
+  .legal-body strong { color:var(--text-primary); font-weight:600; }
+  .legal-body a { color:#00B8A9; text-decoration:none; }
+  .legal-body a:hover { text-decoration:underline; }
+  .legal-body table { width:100%; 

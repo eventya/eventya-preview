@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventya — Privacy Policy</title>
+  <meta name="description" content="Eventya Privacy Policy" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060d14;
+      --bg-2: #0a1a18;
+      --bg-card: rgba(255,255,255,0.025);
+      --border: rgba(255,255,255,0.07);
+      --border-teal: rgba(0,184,169,0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.5);
+      --text-muted: rgba(255,255,255,0.35);
+      --text-label: rgba(255,255,255,0.25);
+      --section-alt: #0a1a18;
+      --section-alt-border: rgba(0,184,169,0.12);
+      --section-alt-text: rgba(255,255,255,0.92);
+      --section-alt-text-2: rgba(255,255,255,0.55);
+      --section-alt-text-3: rgba(0,184,169,0.85);
+      --card-alt: rgba(255,255,255,0.04);
+      --card-alt-border: rgba(0,184,169,0.15);
+      --card-alt-text: rgba(255,255,255,0.9);
+      --card-alt-subtext: rgba(255,255,255,0.5);
+      --stat-bg: rgba(255,255,255,0.03);
+      --stat-border: rgba(255,255,255,0.07);
+      --nav-bg: rgba(6,13,20,0.92);
+      --nav-border: rgba(255,255,255,0.05);
+      --tech-row-bg: rgba(255,255,255,0.03);
+      --tech-row-border: rgba(0,184,169,0.08);
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255,255,255,0.3);
+      --footer-text: rgba(255,255,255,0.3);
+      --footer-link: rgba(255,255,255,0.4);
+      --footer-label: rgba(255,255,255,0.3);
+      --footer-copy: rgba(255,255,255,0.15);
+      --footer-bg: #060d14;
+    }
+    [data-theme="light"] {
+      --bg: #f8fffe;
+      --bg-2: #f0fdfa;
+      --bg-card: #ffffff;
+      --border: rgba(0,184,169,0.12);
+      --border-teal: rgba(0,184,169,0.25);
+      --text-primary: #134e4a;
+      --text-secondary: #1e6b5e;
+      --text-muted: #0d9488;
+      --text-label: #5eead4;
+      --section-alt: #ffffff;
+      --section-alt-border: rgba(0,184,169,0.1);
+      --section-alt-text: #134e4a;
+      --section-alt-text-2: #1e6b5e;
+      --section-alt-text-3: #0d9488;
+      --card-alt: #f0fdfa;
+      --card-alt-border: rgba(0,184,169,0.2);
+      --card-alt-text: #134e4a;
+      --card-alt-subtext: #1e6b5e;
+      --stat-bg: rgba(0,184,169,0.06);
+      --stat-border: rgba(0,184,169,0.15);
+      --nav-bg: rgba(248,255,254,0.95);
+      --nav-border: rgba(0,184,169,0.12);
+      --tech-row-bg: #ffffff;
+      --tech-row-border: rgba(0,184,169,0.12);
+      --input-bg: #ffffff;
+      --input-border: rgba(0,184,169,0.25);
+      --input-text: #134e4a;
+      --input-placeholder: rgba(0,184,169,0.4);
+      --footer-text: #1e6b5e;
+      --footer-link: #0d9488;
+      --footer-label: #5eead4;
+      --footer-copy: rgba(0,184,169,0.4);
+      --footer-bg: #f0fdfa;
+    }
+
+    * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px); background-size: 48px 48px; }
+    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);} 70%{box-shadow:0 0 0 12px rgba(0,184,169,0);} 100%{box-shadow:0 0 0 0 rgba(0,184,169,0);} }
+    .btn-pulse { animation: pulse-ring 2.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot { animation: pulse 2s infinite; }
+    .theme-toggle { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:99px; padding:4px 10px 4px 6px; cursor:pointer; }
+    .toggle-track { width:36px; height:20px; border-radius:99px; background:rgba(0,184,169,0.2); position:relative; transition:background 0.3s; }
+    [data-theme="light"] .toggle-track { background:#00B8A9; }
+    .toggle-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.3s; }
+    [data-theme="light"] .toggle-thumb { transform:translateX(16px); }
+    .toggle-label { font-size:11px; color:var(--text-secondary); font-family:'DM Sans',sans-serif; }
+  </style>
+</head>
+<body><nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--nav-border);background:var(--nav-bg);backdrop-filter:blur(12px);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="/" style="display:flex;flex-direction:column;line-height:1;text-decoration:none;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
+        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="/platform" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Platform</a>
+        <a href="/destinations" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Destinations</a>
+        <a href="/pricing" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Pricing</a>
+        <a href="/about" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">About</a>
+        <a href="/help" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Help</a>
+        
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button onclick="toggleTheme()" class="theme-toggle" title="Toggle dark/light mode">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="theme-label">Dark</span>
+        </button>
+        <a href="/login" style="font-size:13px;color:var(--text-secondary);text-decoration:none;padding:8px 16px;">Sign in</a>
+        <a href="/get-started" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 20px;border-radius:12px;text-decoration:none;">
+          Create your destination
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section style="padding:120px 24px 96px;">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="fade-up" style="margin-bottom:48px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-label);margin-bottom:12px;font-family:'DM Sans',sans-serif;">Legal</p>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--text-primary);line-height:1.05;margin-bottom:12px;">Privacy Policy</h1>
+      <p style="color:var(--text-muted);font-size:14px;">Last updated: March 1, 2026</p>
+    </div>
+    <div style="color:var(--text-secondary);font-size:15px;line-height:1.85;" class="fade-up legal-body">
+
+<div class="highlight">
+  <strong>Summary:</strong> Eventya is a data processor acting on behalf of DMO customers (data controllers). We collect minimal data, store everything in the EU (Google Cloud Frankfurt), never sell personal data, and comply fully with GDPR. Read the full policy below for details.
+</div>
+
+<h2>1. Who We Are</h2>
+<p><strong>Eventya</strong> (operated by <strong>Digital Neighbourhood SRL</strong>, a company incorporated in Romania, CUI [←insert CUI], registered at [←insert address]) is the provider of the Eventya Destination Management Platform, accessible at eventya.net and related subdomains.</p>
+<p>For the purposes of the GDPR (Regulation (EU) 2016/679), Eventya acts as a <strong>data processor</strong> when processing personal data on behalf of our customers (Destination Management Organisations and other entities, who are the data controllers), and as a <strong>data controller</strong> in its own right when processing data related to our own business operations (e.g. prospective customers, newsletter subscribers, support contacts).</p>
+<p>Contact: <a href="/cdn-cgi/l/email-protection#6f1f1d06190e0c162f0a190a011b160e41010a1b"><span class="__cf_email__" data-cfemail="b2c2c0dbc4d3d1cbf2d7c4d7dcc6cbd39cdcd7c6">[email&#160;protected]</span></a> | <a href="/cdn-cgi/l/email-protection#f098959c9c9fb09586959e848991de9e9584"><span class="__cf_email__" data-cfemail="563e333a3a391633203338222f3778383322">[email&#160;protected]</span></a></p>
+
+<h2>2. Data We Collect and Why</h2>
+<h3>2.1 Data you provide directly</h3>
+<ul>
+  <li><strong>Account registration:</strong> name, email address, organisation name, country. Used to create and manage your Eventya account.</li>
+  <li><strong>Billing information:</strong> email, billing address, VAT number. Payment card data is processed directly by our payment provider (Stripe) and never stored on Eventya servers.</li>
+  <li><strong>Support requests:</strong> email address and message content when you contact us via the Help form or email.</li>
+  <li><strong>Content you upload:</strong> texts, images, and other materials you publish through the CMS. This content may contain personal data (e.g. photos of staff members).</li>
+</ul>
+
+<h3>2.2 Data collected automatically</h3>
+<ul>
+  <li><strong>Usage data:</strong> pages visited, features used, session duration, error logs. Used to improve the platform and troubleshoot issues.</li>
+  <li><strong>Device and browser data:</strong> IP address, browser type, operating system, screen resolution. Used for security, fraud prevention and platform compatibility.</li>
+  <li><strong>Cookies:</strong> see our <a href="/cookies">Cookie Policy</a> for full details.</li>
+</ul>
+
+<h3>2.3 End-visitor data (processed on behalf of our customers)</h3>
+<p>When your destination platform is live, end-visitors may interact with your website, mobile app, AI agent or WhatsApp channel. Any personal data collected from end-visitors (e.g. email addresses submitted via forms, WhatsApp phone numbers, analytics identifiers) is processed by Eventya as a <strong>data processor</strong> acting on your instructions as the data controller. Our Data Processing Agreement (<a href="/dpa">DPA</a>) governs this relationship.</p>
+
+<h2>3. Legal Bases for Processing</h2>
+<table>
+  <tr><th>Processing activity</th><th>Legal basis</th></tr>
+  <tr><td>Account creation and platform delivery</td><td>Contract (Art. 6(1)(b) GDPR)</td></tr>
+  <tr><td>Billing and invoicing</td><td>Legal obligation (Art. 6(1)(c) GDPR)</td></tr>
+  <tr><td>Product improvement and analytics</td><td>Legitimate interests (Art. 6(1)(f) GDPR)</td></tr>
+  <tr><td>Marketing emails (optional)</td><td>Consent (Art. 6(1)(a) GDPR)</td></tr>
+  <tr><td>Security and fraud prevention</td><td>Legitimate interests (Art. 6(1)(f) GDPR)</td></tr>
+  <tr><td>Processing end-visitor data for customers</td><td>Data processing agreement (Art. 28 GDPR)</td></tr>
+</table>
+
+<h2>4. Data Sharing and Sub-processors</h2>
+<p>We do not sell personal data. We share data only with the following categories of recipients:</p>
+<table>
+  <tr><th>Sub-processor</th><th>Purpose</th><th>Location</th></tr>
+  <tr><td>Google Cloud Platform</td><td>Hosting, storage, CDN</td><td>EU (Frankfurt, Germany)</td></tr>
+  <tr><td>Twilio Inc.</td><td>WhatsApp Business API, SMS</td><td>USA (Standard Contractual Clauses)</td></tr>
+  <tr><td>SendGrid (Twilio)</td><td>Transactional email</td><td>USA (Standard Contractual Clauses)</td></tr>
+  <tr><td>Stripe Inc.</td><td>Payment processing</td><td>USA/EU (Standard Contractual Clauses)</td></tr>
+  <tr><td>Google Analytics</td><td>Platform usage analytics (optional)</td><td>EU (data residency configured)</td></tr>
+</table>
+<p>For transfers outside the EEA (Twilio, SendGrid, Stripe), we rely on <strong>Standard Contractual Clauses (SCCs)</strong> approved by the European Commission, supplemented by transfer impact assessments where required.</p>
+
+<h2>5. Data Retention</h2>
+<ul>
+  <li><strong>Account data:</strong> retained for the duration of the contract and deleted within 90 days of account closure, unless legal obligations require longer retention.</li>
+  <li><strong>Billing records:</strong> retained for 10 years in accordance with Romanian and EU accounting law.</li>
+  <li><strong>Support communications:</strong> retained for 3 years.</li>
+  <li><strong>Usage logs and analytics:</strong> retained for 13 months, then aggregated or deleted.</li>
+  <li><strong>End-visitor data:</strong> retention periods are set by the data controller (our customer) and specified in the DPA.</li>
+</ul>
+
+<h2>6. Your Rights Under GDPR</h2>
+<p>If you are located in the EEA, you have the following rights:</p>
+<ul>
+  <li><strong>Right of access (Art. 15):</strong> Request a copy of the personal data we hold about you.</li>
+  <li><strong>Right to rectification (Art. 16):</strong> Request correction of inaccurate data.</li>
+  <li><strong>Right to erasure (Art. 17):</strong> Request deletion of your data, subject to legal obligations.</li>
+  <li><strong>Right to restriction of processing (Art. 18):</strong> Request that we limit how we use your data.</li>
+  <li><strong>Right to data portability (Art. 20):</strong> Receive your data in a structured, machine-readable format.</li>
+  <li><strong>Right to object (Art. 21):</strong> Object to processing based on legitimate interests.</li>
+  <li><strong>Right to withdraw consent:</strong> Where processing is based on consent, you may withdraw it at any time.</li>
+</ul>
+<p>To exercise any of these rights, contact us at <a href="/cdn-cgi/l/email-protection#8cfcfee5faedeff5cce9fae9e2f8f5eda2e2e9f8"><span class="__cf_email__" data-cfemail="5727253e2136342e1732213239232e3679393223">[email&#160;protected]</span></a>. We will respond within 30 days. You also have the right to lodge a complaint with the Romanian Data Protection Authority (ANSPDCP) at <a href="https://www.dataprotection.ro" target="_blank">dataprotection.ro</a> or with the supervisory authority in your country of residence.</p>
+
+<h2>7. Security</h2>
+<p>We implement appropriate technical and organisational measures to protect personal data, including:</p>
+<ul>
+  <li>Encryption in transit (TLS 1.2+) and at rest (AES-256)</li>
+  <li>Access controls and role-based permissions</li>
+  <li>Regular security assessments and penetration testing</li>
+  <li>Incident response procedures with notification timelines compliant with GDPR Art. 33</li>
+  <li>Employee training on data protection</li>
+</ul>
+
+<h2>8. Cookies</h2>
+<p>We use cookies and similar technologies. For full details, see our <a href="/cookies">Cookie Policy</a>.</p>
+
+<h2>9. Children's Data</h2>
+<p>The Eventya platform is not directed at children under 16. We do not knowingly collect personal data from children. If you believe we have inadvertently collected such data, contact us immediately at <a href="/cdn-cgi/l/email-protection#4b3b39223d2a28320b2e3d2e253f322a65252e3f"><span class="__cf_email__" data-cfemail="6b1b19021d0a08122b0e1d0e051f120a45050e1f">[email&#160;protected]</span></a>.</p>
+
+<h2>10. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. We will notify registered users of material changes by email and update the "Last updated" date above. Continued use of the platform after changes constitutes acceptance of the revised policy.</p>
+
+    </div>
+  </div>
+</section>
+<footer style="border-top:1px solid var(--border);padding:56px 24px 40px;background:var(--footer-bg);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
+      <div>
+        <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:14px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">eventya</span>
+          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Neighbourhood</span>
+        </div>
+        <p style="color:var(--footer-text);font-size:13px;line-height:1.7;max-width:240px;">Destination Management Platform for European DMOs.</p>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Product</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/platform" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Platform</a>
+          <a href="/pricing" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Pricing</a>
+          <a href="/get-started" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Get started</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Resources</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/destinations" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Destinations</a>
+          <a href="/about" style="color:var(--footer-link);font-size:13px;text-decoration:none;">About</a>
+          <a href="/help" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Help & FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/cdn-cgi/l/email-protection#422a272e2e2d022734272c363b236c2c2736" style="color:var(--footer-link);font-size:13px;text-decoration:none;"><span class="__cf_email__" data-cfemail="69010c050506290c1f0c071d100847070c1d">[email&#160;protected]</span></a>
+          <a href="https://eventya.net" style="color:var(--footer-link);font-size:13px;text-decoration:none;">eventya.net</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
+      <p style="color:var(--footer-copy);font-size:11px;">© 2026 Eventya. All rights reserved.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Privacy</a>
+        <a href="/terms" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script><script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const label = document.getElementById('theme-label');
+    if (html.getAttribute('data-theme') === 'light') {
+      html.removeAttribute('data-theme');
+      if (label) label.textContent = 'Dark';
+      localStorage.setItem('eventya-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'Light';
+      localStorage.setItem('eventya-theme', 'light');
+    }
+  }
+  const saved = localStorage.getItem('eventya-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = 'Light';
+    });
+  }
+</script>
+<style>
+  .legal-body h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:20px; color:var(--text-primary); margin:40px 0 12px; padding-top:8px; border-top:1px solid var(--border); }
+  .legal-body h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:16px; color:var(--text-primary); margin:24px 0 8px; }
+  .legal-body p { margin:0 0 14px; }
+  .legal-body ul { margin:0 0 14px; 

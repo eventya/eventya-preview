@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventya — Cookie Policy</title>
+  <meta name="description" content="Eventya Cookie Policy" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060d14;
+      --bg-2: #0a1a18;
+      --bg-card: rgba(255,255,255,0.025);
+      --border: rgba(255,255,255,0.07);
+      --border-teal: rgba(0,184,169,0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255,255,255,0.5);
+      --text-muted: rgba(255,255,255,0.35);
+      --text-label: rgba(255,255,255,0.25);
+      --section-alt: #0a1a18;
+      --section-alt-border: rgba(0,184,169,0.12);
+      --section-alt-text: rgba(255,255,255,0.92);
+      --section-alt-text-2: rgba(255,255,255,0.55);
+      --section-alt-text-3: rgba(0,184,169,0.85);
+      --card-alt: rgba(255,255,255,0.04);
+      --card-alt-border: rgba(0,184,169,0.15);
+      --card-alt-text: rgba(255,255,255,0.9);
+      --card-alt-subtext: rgba(255,255,255,0.5);
+      --stat-bg: rgba(255,255,255,0.03);
+      --stat-border: rgba(255,255,255,0.07);
+      --nav-bg: rgba(6,13,20,0.92);
+      --nav-border: rgba(255,255,255,0.05);
+      --tech-row-bg: rgba(255,255,255,0.03);
+      --tech-row-border: rgba(0,184,169,0.08);
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-text: #ffffff;
+      --input-placeholder: rgba(255,255,255,0.3);
+      --footer-text: rgba(255,255,255,0.3);
+      --footer-link: rgba(255,255,255,0.4);
+      --footer-label: rgba(255,255,255,0.3);
+      --footer-copy: rgba(255,255,255,0.15);
+      --footer-bg: #060d14;
+    }
+    [data-theme="light"] {
+      --bg: #f8fffe;
+      --bg-2: #f0fdfa;
+      --bg-card: #ffffff;
+      --border: rgba(0,184,169,0.12);
+      --border-teal: rgba(0,184,169,0.25);
+      --text-primary: #134e4a;
+      --text-secondary: #1e6b5e;
+      --text-muted: #0d9488;
+      --text-label: #5eead4;
+      --section-alt: #ffffff;
+      --section-alt-border: rgba(0,184,169,0.1);
+      --section-alt-text: #134e4a;
+      --section-alt-text-2: #1e6b5e;
+      --section-alt-text-3: #0d9488;
+      --card-alt: #f0fdfa;
+      --card-alt-border: rgba(0,184,169,0.2);
+      --card-alt-text: #134e4a;
+      --card-alt-subtext: #1e6b5e;
+      --stat-bg: rgba(0,184,169,0.06);
+      --stat-border: rgba(0,184,169,0.15);
+      --nav-bg: rgba(248,255,254,0.95);
+      --nav-border: rgba(0,184,169,0.12);
+      --tech-row-bg: #ffffff;
+      --tech-row-border: rgba(0,184,169,0.12);
+      --input-bg: #ffffff;
+      --input-border: rgba(0,184,169,0.25);
+      --input-text: #134e4a;
+      --input-placeholder: rgba(0,184,169,0.4);
+      --footer-text: #1e6b5e;
+      --footer-link: #0d9488;
+      --footer-label: #5eead4;
+      --footer-copy: rgba(0,184,169,0.4);
+      --footer-bg: #f0fdfa;
+    }
+
+    * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text-primary); margin: 0; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-grid { background-image: linear-gradient(rgba(0,184,169,0.04) 1px,transparent 1px), linear-gradient(90deg,rgba(0,184,169,0.04) 1px,transparent 1px); background-size: 48px 48px; }
+    .text-gradient { background: linear-gradient(135deg,#00B8A9 0%,#00d4c4 50%,#F5C518 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .fade-up { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4);} 70%{box-shadow:0 0 0 12px rgba(0,184,169,0);} 100%{box-shadow:0 0 0 0 rgba(0,184,169,0);} }
+    .btn-pulse { animation: pulse-ring 2.5s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot { animation: pulse 2s infinite; }
+    .theme-toggle { display:flex; align-items:center; gap:8px; background:var(--bg-card); border:1px solid var(--border); border-radius:99px; padding:4px 10px 4px 6px; cursor:pointer; }
+    .toggle-track { width:36px; height:20px; border-radius:99px; background:rgba(0,184,169,0.2); position:relative; transition:background 0.3s; }
+    [data-theme="light"] .toggle-track { background:#00B8A9; }
+    .toggle-thumb { position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%; background:#fff; transition:transform 0.3s; }
+    [data-theme="light"] .toggle-thumb { transform:translateX(16px); }
+    .toggle-label { font-size:11px; color:var(--text-secondary); font-family:'DM Sans',sans-serif; }
+  </style>
+</head>
+<body><nav style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid var(--nav-border);background:var(--nav-bg);backdrop-filter:blur(12px);">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:64px;">
+      <a href="/" style="display:flex;flex-direction:column;line-height:1;text-decoration:none;">
+        <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);letter-spacing:-0.02em;">eventya</span>
+        <span style="font-size:9px;font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;">Digital Neighbourhood</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <a href="/platform" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Platform</a>
+        <a href="/destinations" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Destinations</a>
+        <a href="/pricing" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Pricing</a>
+        <a href="/about" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">About</a>
+        <a href="/help" style="font-size:13px;color:var(--text-secondary);text-decoration:none;">Help</a>
+        
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button onclick="toggleTheme()" class="theme-toggle" title="Toggle dark/light mode">
+          <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          <span class="toggle-label" id="theme-label">Dark</span>
+        </button>
+        <a href="/login" style="font-size:13px;color:var(--text-secondary);text-decoration:none;padding:8px 16px;">Sign in</a>
+        <a href="/get-started" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;background:#00B8A9;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;padding:10px 20px;border-radius:12px;text-decoration:none;">
+          Create your destination
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<section style="padding:120px 24px 96px;">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="fade-up" style="margin-bottom:48px;">
+      <p style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-label);margin-bottom:12px;font-family:'DM Sans',sans-serif;">Legal</p>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4vw,48px);color:var(--text-primary);line-height:1.05;margin-bottom:12px;">Cookie Policy</h1>
+      <p style="color:var(--text-muted);font-size:14px;">Last updated: March 1, 2026</p>
+    </div>
+    <div style="color:var(--text-secondary);font-size:15px;line-height:1.85;" class="fade-up legal-body">
+
+<div class="highlight">
+  <strong>Summary:</strong> We use strictly necessary cookies (required for the platform to work), optional analytics cookies (Google Analytics 4), and optional marketing cookies (Meta Pixel — disabled by default). You can manage your preferences at any time.
+</div>
+
+<h2>1. What Are Cookies</h2>
+<p>Cookies are small text files stored on your device when you visit a website. They help websites remember information about your visit — such as your language preference or login session. Similar technologies include web beacons, pixels, local storage and session storage.</p>
+<p>This Cookie Policy applies to the Eventya platform (eventya.net and all customer destination platforms powered by Eventya) and should be read alongside our <a href="/privacy">Privacy Policy</a>.</p>
+
+<h2>2. Who Sets Cookies</h2>
+<p><strong>First-party cookies</strong> are set by Eventya directly. <strong>Third-party cookies</strong> are set by services we integrate (Google, Meta, etc.). Each category is described below.</p>
+<p>If you are visiting a destination platform powered by Eventya (e.g. a city tourism website), the operator of that platform is the data controller for cookies set on that platform and should publish their own cookie notice. Eventya provides the technology and acts as data processor.</p>
+
+<h2>3. Cookies We Use</h2>
+
+<h3>3.1 Strictly Necessary Cookies</h3>
+<p>These cookies are essential for the platform to function. They cannot be disabled.</p>
+<table>
+  <tr><th>Cookie name</th><th>Purpose</th><th>Duration</th></tr>
+  <tr><td>eventya_session</td><td>Maintains your login session</td><td>Session</td></tr>
+  <tr><td>eventya_csrf</td><td>Cross-site request forgery protection</td><td>Session</td></tr>
+  <tr><td>eventya_lang</td><td>Stores your language preference</td><td>1 year</td></tr>
+  <tr><td>eventya_consent</td><td>Stores your cookie consent choices</td><td>1 year</td></tr>
+  <tr><td>__cf_bm</td><td>Cloudflare bot management</td><td>30 minutes</td></tr>
+</table>
+
+<h3>3.2 Analytics Cookies (optional)</h3>
+<p>These cookies help us understand how the platform is used. They are only set with your consent.</p>
+<table>
+  <tr><th>Cookie name</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+  <tr><td>_ga, _ga_*</td><td>Google Analytics 4</td><td>Distinguishes unique users, tracks page views and events</td><td>2 years</td></tr>
+  <tr><td>_gid</td><td>Google Analytics 4</td><td>Distinguishes unique users</td><td>24 hours</td></tr>
+</table>
+<p>Google Analytics is configured with IP anonymisation enabled and data residency set to the EU. Data is not used for Google advertising products.</p>
+
+<h3>3.3 Marketing Cookies (optional)</h3>
+<p>These cookies are used for advertising measurement. They are disabled by default and only set with your explicit consent.</p>
+<table>
+  <tr><th>Cookie name</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+  <tr><td>_fbp</td><td>Meta (Facebook)</td><td>Conversion tracking for Meta ads</td><td>3 months</td></tr>
+  <tr><td>_fbc</td><td>Meta (Facebook)</td><td>Click tracking for Meta ads</td><td>3 months</td></tr>
+</table>
+
+<h3>3.4 Functional Cookies (optional)</h3>
+<table>
+  <tr><th>Cookie name</th><th>Purpose</th><th>Duration</th></tr>
+  <tr><td>eventya_theme</td><td>Stores your dark/light mode preference</td><td>1 year</td></tr>
+  <tr><td>eventya_map_pos</td><td>Remembers your last map position</td><td>30 days</td></tr>
+</table>
+
+<h2>4. Your Choices</h2>
+<p>When you first visit the Eventya platform, you will see a cookie consent banner. You can accept all cookies, reject optional cookies, or customise your preferences by category.</p>
+<p>You can change your preferences at any time by clicking <strong>"Cookie settings"</strong> in the footer of any page. Withdrawing consent does not affect the lawfulness of processing carried out before withdrawal.</p>
+<p>You can also manage cookies through your browser settings:</p>
+<ul>
+  <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+  <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank">Mozilla Firefox</a></li>
+  <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank">Apple Safari</a></li>
+  <li><a href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge" target="_blank">Microsoft Edge</a></li>
+</ul>
+<p>Note: disabling strictly necessary cookies will prevent the platform from working correctly.</p>
+
+<h2>5. Do Not Track</h2>
+<p>Some browsers send a "Do Not Track" signal. We honour this signal by not setting optional analytics or marketing cookies when it is detected, without requiring you to interact with the cookie banner.</p>
+
+<h2>6. Changes to This Policy</h2>
+<p>We may update this Cookie Policy when we add or remove cookies or change how we use them. The "Last updated" date at the top of this page reflects the most recent revision.</p>
+
+<h2>7. Contact</h2>
+<p>For questions about our use of cookies, contact us at <a href="/cdn-cgi/l/email-protection#fb8b89928d9a9882bb9e8d9e958f829ad5959e8f"><span class="__cf_email__" data-cfemail="4f3f3d26392e2c360f2a392a213b362e61212a3b">[email&#160;protected]</span></a>.</p>
+
+    </div>
+  </div>
+</section>
+<footer style="border-top:1px solid var(--border);padding:56px 24px 40px;background:var(--footer-bg);">
+  <div style="max-width:1280px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
+      <div>
+        <div style="display:flex;flex-direction:column;line-height:1;margin-bottom:14px;">
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:var(--text-primary);">eventya</span>
+          <span style="font-size:9px;letter-spacing:0.25em;color:#00B8A9;text-transform:uppercase;font-weight:300;">Digital Neighbourhood</span>
+        </div>
+        <p style="color:var(--footer-text);font-size:13px;line-height:1.7;max-width:240px;">Destination Management Platform for European DMOs.</p>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Product</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/platform" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Platform</a>
+          <a href="/pricing" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Pricing</a>
+          <a href="/get-started" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Get started</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Resources</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/destinations" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Destinations</a>
+          <a href="/about" style="color:var(--footer-link);font-size:13px;text-decoration:none;">About</a>
+          <a href="/help" style="color:var(--footer-link);font-size:13px;text-decoration:none;">Help & FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--footer-label);margin-bottom:18px;">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/cdn-cgi/l/email-protection#2149444d4d4e614457444f5558400f4f4455" style="color:var(--footer-link);font-size:13px;text-decoration:none;"><span class="__cf_email__" data-cfemail="bdd5d8d1d1d2fdd8cbd8d3c9c4dc93d3d8c9">[email&#160;protected]</span></a>
+          <a href="https://eventya.net" style="color:var(--footer-link);font-size:13px;text-decoration:none;">eventya.net</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;">
+      <p style="color:var(--footer-copy);font-size:11px;">© 2026 Eventya. All rights reserved.</p>
+      <div style="display:flex;gap:20px;">
+        <a href="/privacy" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Privacy</a>
+        <a href="/terms" style="color:var(--footer-copy);font-size:11px;text-decoration:none;">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-up').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    });
+  });
+</script><script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const label = document.getElementById('theme-label');
+    if (html.getAttribute('data-theme') === 'light') {
+      html.removeAttribute('data-theme');
+      if (label) label.textContent = 'Dark';
+      localStorage.setItem('eventya-theme', 'dark');
+    } else {
+      html.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'Light';
+      localStorage.setItem('eventya-theme', 'light');
+    }
+  }
+  const saved = localStorage.getItem('eventya-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const label = document.getElementById('theme-label');
+      if (label) label.textContent = 'Light';
+    });
+  }
+</script>
+<style>
+  .legal-body h2 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:20px; color:var(--text-primary); margin:40px 0 12px; padding-top:8px; border-top:1px solid var(--border); }
+  .legal-body h3 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:16px; color:var(--text-primary); margin:24px 0 8px; }
+  .legal-body p { margin:0 0 14px; }
+  .legal-body ul { margin:0 0 14px; padding-left:20px; }
+  .legal-body li { margin-bottom:6px; }
+  .legal-body strong { color:var(--text-primary); font-weight:600; }
+  .legal-body a { color:#00B8A9; text-decoration:none; }
+  .legal-body a:hover { text-decoration:underline; }
+  .legal-body table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:14px; }
+  .legal-body th { text-align:left; padding:10px 14px; backgrou

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventya Platform — The complete DMS for European DMOs</title>
+  <meta name="description" content="A complete Destination Management System — 13 content modules feeding your website, mobile app, AI agent, WhatsApp and visitor helpdesk automatically." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { DEFAULT: '#00B8A9', 50: '#E6FAF9', 500: '#00B8A9', 600: '#009E91', 700: '#007D73' },
+            amber: { brand: '#F5C518' },
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"DM Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
+    h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-grid {
+      background-image: linear-gradient(rgba(0,184,169,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,184,169,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #00B8A9 0%, #00d4c4 50%, #F5C518 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .fade-up { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .module-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .module-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,184,169,0.1); }
+    .feat-tab { cursor:pointer; transition: all 0.2s; }
+    .feat-tab.active { background: rgba(0,184,169,0.1); border-color: rgba(0,184,169,0.4) !important; }
+    .feat-tab.active h3 { color: #fff; }
+    .feat-panel { display:none; }
+    .feat-panel.active { display:block; }
+    .faq-answer { display:none; }
+    .faq-answer.open { display:block; }
+    .faq-chevron { transition: transform 0.2s; }
+    .faq-chevron.open { transform: rotate(180deg); }
+    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(0,184,169,0.4)}70%{box-shadow:0 0 0 12px rgba(0,184,169,0)}100%{box-shadow:0 0 0 0 rgba(0,184,169,0)} }
+    .btn-pulse { animation: pulse-ring 2.5s infinite; }
+    #mobile-menu { display:none; }
+    #mobile-menu.open { display:block; }
+    .section-light { background: #f8fffe; }
+
+    /* Arrow connector between sections */
+    .section-connector {
+      display: flex; align-items: center; justify-content: center;
+      padding: 0; margin: 0; position: relative; z-index: 10;
+    }
+  </style>
+</head>
+<body class="bg-[#060d14] text-white antialiased">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#060d14]/90 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="flex flex-col leading-none">
+        <span class="font-display font-extrabold text-xl text-white tracking-tight" style="font-weight:800">eventya</span>
+        <span class="text-[9px] font-body font-light tracking-[0.25em] text-teal-500 uppercase">Digital Neighbourhood</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/platform" class="text-sm font-body text-white border-b border-teal-500 pb-0.5">Platform</a>
+        <a href="/destinations" class="text-sm font-body text-white/60 hover:text-white transition-colors">Destinations</a>
+        <a href="/pricing" class="text-sm font-body text-white/60 hover:text-white transition-colors">Pricing</a>
+        <a href="/about" class="text-sm font-body text-white/60 hover:text-white transition-colors">About</a>
+      </div>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="/login" class="text-sm font-body text-white/60 hover:text-white transition-colors px-4 py-2">Sign in</a>
+        <a href="/get-started" class="btn-pulse inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-display font-semibold px-5 py-2.5 rounded-xl transition-colors">
+          Create your destination
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <button class="md:hidden text-white/60 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden pb-4 border-t border-white/5 mt-2 pt-4">
+      <div class="flex flex-col gap-3">
+        <a href="/platform" class="text-sm text-white py-1">Platform</a>
+        <a href="/destinations" class="text-sm text-white/70 py-1">Destinations</a>
+        <a href="/pricing" class="text-sm text-white/70 py-1">Pricing</a>
+        <a href="/get-started" class="mt-2 inline-flex items-center justify-center bg-teal-500 text-white text-sm font-semibold px-5 py-3 rounded-xl">Create your destination — it's free →</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="relative pt-32 pb-20 hero-grid overflow-hidden">
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-teal-500/5 blur-[100px] pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center relative">
+    <div class="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-body px-4 py-2 rounded-full mb-6 fade-up">
+      <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></span>
+      Full platform overview
+    </div>
+    <h1 class="font-display font-extrabold text-5xl md:text-6xl text-white leading-tight tracking-tight mb-5 fade-up" style="font-weight:800">
+      A complete DMS.<br/><span class="text-gradient">Built for European DMOs.</span>
+    </h1>
+    <p class="text-white/55 font-body text-xl max-w-3xl mx-auto mb-10 fade-up">
+      Eventya is a full Destination Management System — 13 content modules that feed your website, mobile app, AI agent, WhatsApp and visitor helpdesk <em class="not-italic text-white/80">automatically</em>.
+    </p>
+
+    <!-- Two-layer visual summary -->
+    <div class="inline-flex flex-col md:flex-row items-center gap-3 mb-10 fade-up">
+      <div class="flex items-center gap-2 bg-white/4 border border-white/10 rounded-2xl px-5 py-3">
+        <span class="text-xl">🗄️</span>
+        <span class="font-display font-semibold text-white text-sm">DMS Core</span>
+        <span class="text-white/30 text-xs font-body">13 modules</span>
+      </div>
+      <div class="text-white/25 font-body text-sm hidden md:block">→ feeds →</div>
+      <div class="text-white/25 font-body text-xs md:hidden">↓ feeds ↓</div>
+      <div class="flex items-center gap-2 bg-teal-500/10 border border-teal-500/25 rounded-2xl px-5 py-3">
+        <span class="text-xl">📡</span>
+        <span class="font-display font-semibold text-teal-300 text-sm">5 Digital Channels</span>
+        <span class="text-teal-500/60 text-xs font-body">automatically</span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 fade-up">
+      <a href="/get-started" class="btn-pulse inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-display font-bold px-7 py-3.5 rounded-xl transition-colors shadow-lg shadow-teal-500/20">
+        Try it free →
+      </a>
+      <a href="#dms-core" class="inline-flex items-center gap-2 text-white/60 hover:text-white font-body text-sm border border-white/10 hover:border-white/20 px-6 py-3.5 rounded-xl transition-all">
+        Explore the platform
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SECTION 1 — DMS CORE
+     ============================================================ -->
+<section id="dms-core" class="py-24 lg:py-32 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mx-auto text-center mb-16 fade-up">
+      <div class="inline-flex items-center gap-2 text-white/40 text-xs font-body tracking-[0.2em] uppercase mb-4">
+        <span class="w-8 h-px bg-white/20"></span>
+        Layer 1
+        <span class="w-8 h-px bg-white/20"></span>
+      </div>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-tight mb-4" style="font-weight:800">
+        DMS Core
+      </h2>
+      <p class="text-white/50 font-body text-lg">
+        Everything your team needs to manage a destination — content, media, services, analytics — in one unified back-office. Add it once. It appears everywhere.
+      </p>
+    </div>
+
+    <!-- Module grid — 13 modules -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-16">
+
+      <!-- 1. Attractions -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🏛️</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Attractions & Sights</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Manage all points of interest — monuments, nature spots, museums — with rich descriptions, photos, coordinates and opening hours.</p>
+      </div>
+
+      <!-- 2. Accommodation -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🏨</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Accommodation</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Hotels, guesthouses, B&Bs, campsites — with categories, amenities, grade, price range and booking links.</p>
+      </div>
+
+      <!-- 3. Food & Drinks -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-amber-brand/10 border border-amber-brand/20 flex items-center justify-center text-xl mb-3" style="background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.2)">🍽️</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Food & Drinks</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Restaurants, cafes, bars, wineries — filterable by cuisine type, price, dietary options and visitor ratings.</p>
+      </div>
+
+      <!-- 4. Local Services -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🧭</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Local Services</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Tour guides, transport, bike rentals, tourist information offices — the full service directory of your destination.</p>
+      </div>
+
+      <!-- 5. Routes & Itineraries -->
+      <div class="module-card bg-teal-500/8 border border-teal-500/15 rounded-2xl p-5" style="background:rgba(0,184,169,0.08);border-color:rgba(0,184,169,0.15)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-xl mb-3">🗺️</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Routes & Itineraries</h3>
+        <p class="text-teal-100/55 text-xs font-body leading-relaxed">Create themed routes that connect attractions, accommodations and services — with maps, difficulty levels and estimated duration.</p>
+      </div>
+
+      <!-- 6. Events -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🎭</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Events</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Festivals, concerts, markets, seasonal events — with dates, location, ticketing links and multilingual descriptions.</p>
+      </div>
+
+      <!-- 7. Media Gallery -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🖼️</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Media Gallery</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Centralized media library for photos and videos. Tag, organize and reuse assets across all modules and all channels.</p>
+      </div>
+
+      <!-- 8. Attributes & Taxonomy -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🏷️</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Attributes & Taxonomy</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Custom attributes and classification systems for every content type — enabling powerful filtering and discovery for visitors.</p>
+      </div>
+
+      <!-- 9. Grades & Ratings -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-amber-brand/10 border border-amber-brand/20 flex items-center justify-center text-xl mb-3" style="background:rgba(245,197,24,0.1);border-color:rgba(245,197,24,0.2)">⭐</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Grades & Ratings</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Official DMO grading system for accommodations and services — stars, categories, quality seals — displayed on all channels.</p>
+      </div>
+
+      <!-- 10. Reports & Analytics -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">📊</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Reports & Analytics</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Visitor traffic, most-viewed attractions, helpdesk volumes, AI agent interactions — all in a unified dashboard with exportable reports.</p>
+      </div>
+
+      <!-- 11. Multi-user & Roles -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">👥</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Multi-user & Roles</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Invite your team, assign roles (admin, editor, helpdesk agent) and control who can edit what — with full audit trail.</p>
+      </div>
+
+      <!-- 12. Import/Export -->
+      <div class="module-card bg-white/3 border border-white/7 rounded-2xl p-5" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.07)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/15 border border-teal-500/20 flex items-center justify-center text-xl mb-3">🔄</div>
+        <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Import / Export</h3>
+        <p class="text-white/40 text-xs font-body leading-relaxed">Migrate existing data via CSV/JSON import. Export your full content database at any time — no lock-in.</p>
+      </div>
+
+      <!-- 13. AI Tourist Support — spans 2 cols on large -->
+      <div class="module-card sm:col-span-2 lg:col-span-2 bg-teal-500/8 border border-teal-500/20 rounded-2xl p-5 flex gap-4 items-start" style="background:rgba(0,184,169,0.08);border-color:rgba(0,184,169,0.2)">
+        <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-xl flex-shrink-0">🤖</div>
+        <div>
+          <h3 class="font-display font-bold text-white text-sm mb-1" style="font-weight:700">Tourist Support via AI Assistant</h3>
+          <p class="text-teal-100/55 text-xs font-body leading-relaxed">An AI assistant trained on your destination's content — attractions, routes, hours, services — answers visitor questions in their language, 24/7, across website chat and WhatsApp. When it can't answer, it escalates to your helpdesk team.</p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="text-[10px] font-body text-teal-300/80 bg-teal-500/10 border border-teal-400/20 px-2.5 py-1 rounded-full">Multilingual auto-detect</span>
+            <span class="text-[10px] font-body text-teal-300/80 bg-teal-500/10 border border-teal-400/20 px-2.5 py-1 rounded-full">Trained on your content</span>
+            <span class="text-[10px] font-body text-teal-300/80 bg-teal-500/10 border border-teal-400/20 px-2.5 py-1 rounded-full">Smart escalation</span>
+            <span class="text-[10px] font-body text-teal-300/80 bg-teal-500/10 border border-teal-400/20 px-2.5 py-1 rounded-full">Zero maintenance</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- "One CMS" callout -->
+    <div class="max-w-2xl mx-auto text-center fade-up">
+      <p class="text-white/35 font-body text-sm">
+        All 13 modules are managed from a <span class="text-white/70">single CMS interface</span>. Add or update content once — it propagates automatically to your website, mobile app, AI agent and helpdesk.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONNECTOR — visual bridge between layers
+     ============================================================ -->
+<div class="section-connector py-10 bg-[#060d14]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex flex-col items-center gap-4">
+      <div class="w-px h-10 bg-gradient-to-b from-white/5 to-teal-500/40"></div>
+      <div class="flex items-center gap-4 bg-teal-500/8 border border-teal-500/20 rounded-2xl px-8 py-4" style="background:rgba(0,184,169,0.08)">
+        <div class="text-white/40 font-body text-xs uppercase tracking-widest">DMS Core feeds</div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm">🌐</span>
+          <span class="text-sm">📱</span>
+          <span class="text-sm">🤖</span>
+          <span class="text-sm">💬</span>
+          <span class="text-sm">🎧</span>
+        </div>
+        <div class="text-teal-400 font-body text-xs uppercase tracking-widest">automatically</div>
+      </div>
+      <div class="w-px h-10 bg-gradient-to-b from-teal-500/40 to-white/5"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SECTION 2 — THE FIVE PILLARS (digital channels)
+     ============================================================ -->
+<section id="five-pillars" class="py-24 lg:py-32 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mx-auto text-center mb-16 fade-up">
+      <div class="inline-flex items-center gap-2 text-teal-400 text-xs font-body tracking-[0.2em] uppercase mb-4">
+        <span class="w-8 h-px bg-teal-500/40"></span>
+        Layer 2
+        <span class="w-8 h-px bg-teal-500/40"></span>
+      </div>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-tight mb-4" style="font-weight:800">
+        Five digital channels.<br/><span class="text-gradient">One source of truth.</span>
+      </h2>
+      <p class="text-white/50 font-body text-lg">
+        Your DMS content powers five visitor-facing channels automatically. No copy-paste, no duplication, no inconsistencies.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+      <!-- Tab list -->
+      <div class="flex flex-col gap-3">
+        <div class="feat-tab active border border-white/8 rounded-2xl p-5 flex items-start gap-4" onclick="switchTab('website')" style="border-color:rgba(255,255,255,0.08)">
+          <div class="feat-icon w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-xl flex-shrink-0">🌐</div>
+          <div>
+            <h3 class="font-display font-bold text-white/70 text-base mb-0.5" style="font-weight:700">Destination Website</h3>
+            <p class="text-white/35 text-xs font-body">Multilingual, SEO-ready, live in minutes</p>
+          </div>
+        </div>
+        <div class="feat-tab border border-white/8 rounded-2xl p-5 flex items-start gap-4" onclick="switchTab('app')" style="border-color:rgba(255,255,255,0.08)">
+          <div class="feat-icon w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-xl flex-shrink-0">📱</div>
+          <div>
+            <h3 class="font-display font-bold text-white/70 text-base mb-0.5" style="font-weight:700">Native Mobile App</h3>
+            <p class="text-white/35 text-xs font-body">iOS & Android, auto-generated</p>
+          </div>
+        </div>
+        <div class="feat-tab border border-white/8 rounded-2xl p-5 flex items-start gap-4" onclick="switchTab('ai')" style="border-color:rgba(255,255,255,0.08)">
+          <div class="feat-icon w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-xl flex-shrink-0">🤖</div>
+          <div>
+            <h3 class="font-display font-bold text-white/70 text-base mb-0.5" style="font-weight:700">AI Virtual Agent</h3>
+            <p class="text-white/35 text-xs font-body">24/7 multilingual visitor support</p>
+          </div>
+        </div>
+        <div class="feat-tab border border-white/8 rounded-2xl p-5 flex items-start gap-4" onclick="switchTab('whatsapp')" style="border-color:rgba(255,255,255,0.08)">
+          <div class="feat-icon w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-xl flex-shrink-0">💬</div>
+          <div>
+            <h3 class="font-display font-bold text-white/70 text-base mb-0.5" style="font-weight:700">WhatsApp AI</h3>
+            <p class="text-white/35 text-xs font-body">Instant responses on WhatsApp</p>
+          </div>
+        </div>
+        <div class="feat-tab border border-white/8 rounded-2xl p-5 flex items-start gap-4" onclick="switchTab('helpdesk')" style="border-color:rgba(255,255,255,0.08)">
+          <div class="feat-icon w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-xl flex-shrink-0">🎧</div>
+          <div>
+            <h3 class="font-display font-bold text-white/70 text-base mb-0.5" style="font-weight:700">Visitor Helpdesk</h3>
+            <p class="text-white/35 text-xs font-body">All channels in one inbox</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <div class="lg:col-span-2">
+
+        <!-- WEBSITE -->
+        <div class="feat-panel active" id="panel-website">
+          <div class="rounded-2xl border border-teal-500/20 bg-teal-500/5 overflow-hidden" style="background:rgba(0,184,169,0.05)">
+            <div class="p-6 border-b border-white/5">
+              <div class="rounded-xl border border-white/8 bg-[#080f18] overflow-hidden">
+                <div class="flex items-center gap-2 px-4 py-2.5 border-b border-white/5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/40"></span><span class="w-2.5 h-2.5 rounded-full bg-yellow-500/40"></span><span class="w-2.5 h-2.5 rounded-full bg-green-500/40"></span>
+                  <div class="ml-2 flex-1 bg-white/5 rounded h-5 flex items-center px-3"><span class="text-white/20 text-xs">yourdestination.com</span></div>
+                  <div class="flex gap-1.5 ml-2">
+                    <span class="text-[10px] text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2 py-0.5 rounded-full">EN</span>
+                    <span class="text-[10px] text-white/30 bg-white/4 px-2 py-0.5 rounded-full">DE</span>
+                    <span class="text-[10px] text-white/30 bg-white/4 px-2 py-0.5 rounded-full">FR</span>
+                  </div>
+                </div>
+                <div class="p-4">
+                  <div class="h-16 rounded-xl bg-gradient-to-r from-teal-500/20 to-teal-500/5 border border-teal-500/15 mb-3 flex items-center px-4">
+                    <div><div class="h-2.5 w-28 bg-teal-400/40 rounded mb-1.5"></div><div class="h-2 w-44 bg-white/15 rounded"></div></div>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded-lg bg-white/4 border border-white/6 p-2"><div class="h-2 w-full bg-teal-500/20 rounded mb-1.5"></div><div class="h-1.5 w-3/4 bg-white/10 rounded mb-1"></div><div class="h-1.5 w-1/2 bg-white/10 rounded"></div></div>
+                    <div class="h-16 rounded-lg bg-white/4 border border-white/6 p-2"><div class="h-2 w-full bg-amber-brand/20 rounded mb-1.5" style="background:rgba(245,197,24,0.2)"></div><div class="h-1.5 w-3/4 bg-white/10 rounded mb-1"></div><div class="h-1.5 w-1/2 bg-white/10 rounded"></div></div>
+                    <div class="h-16 rounded-lg bg-white/4 border border-white/6 p-2"><div class="h-2 w-full bg-teal-500/20 rounded mb-1.5"></div><div class="h-1.5 w-3/4 bg-white/10 rounded mb-1"></div><div class="h-1.5 w-1/2 bg-white/10 rounded"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" style="font-weight:700">A complete destination portal — ready in minutes</h3>
+              <p class="text-white/55 font-body text-sm leading-relaxed mb-4">Auto-generated from your CMS. Attractions, routes, events, food, services — all structured, SEO-optimized, published in all your active languages simultaneously.</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Up to 6 languages</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Custom domain & SSL</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Auto SEO meta tags</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Google CDN delivery</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- APP -->
+        <div class="feat-panel" id="panel-app">
+          <div class="rounded-2xl border border-teal-500/20 bg-teal-500/5 overflow-hidden" style="background:rgba(0,184,169,0.05)">
+            <div class="p-6 border-b border-white/5 flex justify-center gap-8">
+              <div class="w-32 rounded-2xl border-2 border-white/15 bg-[#080f18] overflow-hidden">
+                <div class="h-3 bg-white/5 flex items-center justify-center"><div class="w-6 h-1 bg-white/20 rounded-full"></div></div>
+                <div class="p-2">
+                  <div class="h-16 rounded-lg bg-gradient-to-b from-teal-500/20 to-teal-500/5 mb-2 flex items-end p-2"><div class="h-2 w-16 bg-white/40 rounded"></div></div>
+                  <div class="space-y-1.5">
+                    <div class="h-7 rounded-lg bg-white/4 border border-white/6 flex items-center px-2 gap-2"><div class="w-4 h-4 rounded bg-teal-500/25 flex-shrink-0"></div><div class="h-1.5 w-full bg-white/10 rounded"></div></div>
+                    <div class="h-7 rounded-lg bg-white/4 border border-white/6 flex items-center px-2 gap-2"><div class="w-4 h-4 rounded bg-amber-brand/20 flex-shrink-0" style="background:rgba(245,197,24,0.2)"></div><div class="h-1.5 w-4/5 bg-white/10 rounded"></div></div>
+                    <div class="h-7 rounded-lg bg-white/4 border border-white/6 flex items-center px-2 gap-2"><div class="w-4 h-4 rounded bg-teal-500/25 flex-shrink-0"></div><div class="h-1.5 w-3/5 bg-white/10 rounded"></div></div>
+                  </div>
+                </div>
+                <div class="mt-1 h-7 bg-white/4 border-t border-white/6 flex items-center justify-around px-2">
+                  <div class="w-3.5 h-3.5 rounded bg-teal-500/40"></div><div class="w-3.5 h-3.5 rounded bg-white/10"></div><div class="w-3.5 h-3.5 rounded bg-white/10"></div><div class="w-3.5 h-3.5 rounded bg-white/10"></div>
+                </div>
+              </div>
+              <div class="flex flex-col justify-center gap-3">
+                <div class="flex items-center gap-3 bg-white/4 border border-white/8 rounded-xl px-4 py-2.5"><div class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center">🍎</div><div><div class="text-white text-xs font-bold">App Store</div><div class="text-white/35 text-[10px]">iOS · auto-published</div></div></div>
+                <div class="flex items-center gap-3 bg-white/4 border border-white/8 rounded-xl px-4 py-2.5"><div class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center">🤖</div><div><div class="text-white text-xs font-bold">Google Play</div><div class="text-white/35 text-[10px]">Android · auto-published</div></div></div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" style="font-weight:700">Native apps — no developers needed</h3>
+              <p class="text-white/55 font-body text-sm leading-relaxed mb-4">iOS and Android apps generated automatically from your CMS. Offline maps, push notifications, QR scanning — all included. Content updates propagate automatically.</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>iOS & Android</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Offline maps</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Push notifications</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>QR code scanner</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI -->
+        <div class="feat-panel" id="panel-ai">
+          <div class="rounded-2xl border border-teal-500/20 bg-teal-500/5 overflow-hidden" style="background:rgba(0,184,169,0.05)">
+            <div class="p-6 border-b border-white/5">
+              <div class="rounded-xl border border-white/8 bg-[#080f18] p-4 space-y-3">
+                <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-xs flex-shrink-0">👤</div><div class="bg-white/6 rounded-2xl rounded-tl-none px-3 py-2 max-w-xs"><p class="text-white/70 text-xs font-body">What time does the castle open tomorrow?</p></div></div>
+                <div class="flex items-start gap-3 justify-end"><div class="bg-teal-500/15 border border-teal-500/20 rounded-2xl rounded-tr-none px-3 py-2 max-w-xs"><p class="text-teal-100 text-xs font-body">The castle opens at 9:00 AM on weekdays, 10:00 AM on weekends. Would you like directions?</p></div><div class="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center text-xs flex-shrink-0">🤖</div></div>
+                <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-xs flex-shrink-0">👤</div><div class="bg-white/6 rounded-2xl rounded-tl-none px-3 py-2 max-w-xs"><p class="text-white/70 text-xs font-body">Ja bitte, und gibt es Parkplätze?</p></div></div>
+                <div class="flex items-start gap-3 justify-end"><div class="bg-teal-500/15 border border-teal-500/20 rounded-2xl rounded-tr-none px-3 py-2 max-w-xs"><p class="text-teal-100 text-xs font-body">Ja, es gibt einen kostenlosen Parkplatz 200m vom Haupteingang...</p></div><div class="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center text-xs flex-shrink-0">🤖</div></div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" style="font-weight:700">AI trained on your destination's content</h3>
+              <p class="text-white/55 font-body text-sm leading-relaxed mb-4">Answers in the visitor's language, 24/7, using your DMS data — attractions, routes, hours, services. When it can't answer, it escalates to your helpdesk.</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Multilingual auto-detect</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Smart escalation</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Zero maintenance</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Always on</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="feat-panel" id="panel-whatsapp">
+          <div class="rounded-2xl border border-teal-500/20 bg-teal-500/5 overflow-hidden" style="background:rgba(0,184,169,0.05)">
+            <div class="p-6 border-b border-white/5 flex justify-center">
+              <div class="w-44 rounded-2xl border border-white/10 bg-[#075E54]/20 overflow-hidden">
+                <div class="bg-[#075E54]/40 px-3 py-2 flex items-center gap-2 border-b border-white/5"><div class="w-6 h-6 rounded-full bg-teal-500/40 flex items-center justify-center text-xs">📍</div><div><div class="text-white text-xs font-bold">Visit Destination</div><div class="text-white/40 text-[9px]">online</div></div></div>
+                <div class="p-3 space-y-2 bg-[#0a1929]/60">
+                  <div class="bg-white/8 rounded-lg rounded-tl-none px-2.5 py-1.5 text-[10px] text-white/70 font-body max-w-[80%]">Where can I find a good restaurant near the old town?</div>
+                  <div class="bg-[#025144]/60 rounded-lg rounded-tr-none px-2.5 py-1.5 text-[10px] text-teal-100/80 font-body max-w-[80%] ml-auto">12 restaurants within 5min walk. Top rated: La Piazza (Italian), Café Central (local)...</div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" style="font-weight:700">Meet visitors on WhatsApp</h3>
+              <p class="text-white/55 font-body text-sm leading-relaxed mb-4">Powered by Twilio WhatsApp Business API. Same AI, same DMS data — instant responses where visitors already communicate.</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Twilio WA Business API</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Flows into helpdesk</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No visitor app needed</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Same AI as website chat</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HELPDESK -->
+        <div class="feat-panel" id="panel-helpdesk">
+          <div class="rounded-2xl border border-teal-500/20 bg-teal-500/5 overflow-hidden" style="background:rgba(0,184,169,0.05)">
+            <div class="p-6 border-b border-white/5">
+              <div class="rounded-xl border border-white/8 bg-[#080f18] overflow-hidden">
+                <div class="flex h-32">
+                  <div class="w-1/3 border-r border-white/5 p-2 space-y-1">
+                    <div class="h-7 rounded-lg bg-teal-500/15 border border-teal-500/20 flex items-center px-2 gap-2"><div class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse"></div><div class="h-1.5 flex-1 bg-white/20 rounded"></div></div>
+                    <div class="h-7 rounded-lg bg-white/4 flex items-center px-2 gap-2"><div class="w-1.5 h-1.5 rounded-full bg-amber-brand" style="background:#F5C518"></div><div class="h-1.5 flex-1 bg-white/10 rounded"></div></div>
+                    <div class="h-7 rounded-lg bg-white/4 flex items-center px-2 gap-2"><div class="w-1.5 h-1.5 rounded-full bg-white/20"></div><div class="h-1.5 flex-1 bg-white/10 rounded"></div></div>
+                  </div>
+                  <div class="flex-1 p-3">
+                    <div class="flex items-center gap-2 mb-2"><div class="w-4 h-4 rounded-full bg-teal-500/30"></div><div class="h-1.5 w-20 bg-white/20 rounded"></div><div class="ml-auto text-[9px] text-teal-400 bg-teal-500/10 px-1.5 py-0.5 rounded">WhatsApp</div></div>
+                    <div class="space-y-1.5"><div class="h-1.5 w-full bg-white/10 rounded"></div><div class="h-1.5 w-4/5 bg-white/10 rounded"></div><div class="h-1.5 w-3/5 bg-white/6 rounded"></div></div>
+                    <div class="mt-2 flex gap-2"><div class="h-5 flex-1 bg-teal-500/20 rounded-lg"></div><div class="h-5 w-5 bg-white/6 rounded-lg"></div></div>
+                  </div>
+                </div>
+                <div class="border-t border-white/5 flex">
+                  <div class="flex-1 py-1.5 flex items-center justify-center border-r border-white/5 bg-teal-500/8"><span class="text-[9px] text-teal-400">💬 Chat</span></div>
+                  <div class="flex-1 py-1.5 flex items-center justify-center border-r border-white/5"><span class="text-[9px] text-white/30">📱 WhatsApp</span></div>
+                  <div class="flex-1 py-1.5 flex items-center justify-center"><span class="text-[9px] text-white/30">✉️ Email</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-display font-bold text-xl text-white mb-2" style="font-weight:700">One inbox for every channel</h3>
+              <p class="text-white/55 font-body text-sm leading-relaxed mb-4">Website chat, WhatsApp, email — all in one unified inbox. Full conversation history, team assignment, SendGrid email delivery.</p>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unified inbox</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>SendGrid email</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Team assignment</div>
+                <div class="flex items-center gap-2 text-xs text-white/50 font-body"><svg class="w-3.5 h-3.5 text-teal-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Full history</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TECH STACK — light section
+     ============================================================ -->
+<section class="section-light py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl leading-tight mb-4" style="font-weight:800;color:#0f172a">Built on infrastructure<br/>you can trust.</h2>
+      <p class="font-body text-lg max-w-2xl mx-auto" style="color:#475569">Industry-standard, enterprise-grade technology. No proprietary lock-in.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-xl mb-4">☁️</div>
+        <h3 class="font-display font-bold text-slate-900 text-base mb-1" style="font-weight:700">Hosting & Delivery</h3>
+        <p class="text-slate-500 text-xs font-body mb-4">Fast, global, reliable.</p>
+        <div class="space-y-2">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#4285F4;flex-shrink:0;display:inline-block"></span>Google Cloud Platform</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#EA4335;flex-shrink:0;display:inline-block"></span>Google CDN — global edge</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#34A853;flex-shrink:0;display:inline-block"></span>EU data hosting (Frankfurt)</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#00B8A9;flex-shrink:0;display:inline-block"></span>Auto SSL (Let's Encrypt)</div>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center text-xl mb-4">📡</div>
+        <h3 class="font-display font-bold text-slate-900 text-base mb-1" style="font-weight:700">Communications</h3>
+        <p class="text-slate-500 text-xs font-body mb-4">Messages delivered, every time.</p>
+        <div class="space-y-2">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#F22F46;flex-shrink:0;display:inline-block"></span>Twilio — WhatsApp Business API</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#1A82E2;flex-shrink:0;display:inline-block"></span>SendGrid — transactional email</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#00B8A9;flex-shrink:0;display:inline-block"></span>Push notifications (FCM/APNs)</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#F5C518;flex-shrink:0;display:inline-block"></span>SMS fallback via Twilio</div>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div class="w-10 h-10 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center text-xl mb-4">📊</div>
+        <h3 class="font-display font-bold text-slate-900 text-base mb-1" style="font-weight:700">Analytics & Privacy</h3>
+        <p class="text-slate-500 text-xs font-body mb-4">Know your visitors. Respect their privacy.</p>
+        <div class="space-y-2">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#E37400;flex-shrink:0;display:inline-block"></span>Google Analytics 4</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#1877F2;flex-shrink:0;display:inline-block"></span>Meta Pixel (optional)</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#5865F2;flex-shrink:0;display:inline-block"></span>GDPR consent manager built-in</div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:8px 14px;font-size:12px;color:#475569;font-family:'DM Sans',sans-serif;width:100%"><span style="width:7px;height:7px;border-radius:50%;background:#00B8A9;flex-shrink:0;display:inline-block"></span>EU data residency guaranteed</div>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-2xl border border-teal-200 bg-teal-50 p-6 flex flex-col md:flex-row items-start md:items-center gap-4">
+      <div class="w-10 h-10 rounded-xl bg-teal-100 border border-teal-200 flex items-center justify-center text-xl flex-shrink-0">🇪🇺</div>
+      <div class="flex-1">
+        <h3 class="font-display font-bold text-teal-900 text-base mb-1" style="font-weight:700">GDPR compliant. EU data hosting. Built for European DMOs.</h3>
+        <p class="text-teal-700/70 font-body text-sm">All data stored in EU data centers (Frankfurt, Google Cloud). No transfer outside the EEA. Full GDPR compliance out of the box — including cookie consent manager and standard DPA.</p>
+      </div>
+      <span class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-body text-teal-700 bg-teal-100 border border-teal-200 px-3 py-1.5 rounded-full">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        EU data residency
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="py-24 lg:py-32">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-14 fade-up">
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white mb-4" style="font-weight:800">Frequently asked</h2>
+      <p class="text-white/45 font-body text-lg">Everything DMO managers ask before going live.</p>
+    </div>
+    <div id="faq">
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">How long does it take to go live?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">Platform created in under 10 seconds. First content added and live on test URL in under 10 minutes. Live on your custom domain including DNS setup in about 30 minutes. No technical team needed.</p></div></div>
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">Do I need developers or a technical team?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">No. Eventya is designed for destination managers, not developers. The only technical step is pointing your domain's DNS — something your IT team can do in 5 minutes.</p></div></div>
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">Where is our data stored? Is it GDPR compliant?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">All data is stored in EU data centers (Frankfurt, Google Cloud). We never transfer visitor data outside the EEA. Full GDPR compliance out of the box — including cookie consent manager and a standard DPA for all customers.</p></div></div>
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">Which languages are supported?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">The platform interface supports 20+ languages. Content is managed per language in the CMS. Standard plans include 6 languages. The AI agent automatically detects and responds in the visitor's language regardless of your published languages.</p></div></div>
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">Can we migrate from our existing platform?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">Yes. CSV/JSON import tool for attractions, events and routes. Enterprise customers get direct migration support. Run Eventya in parallel before switching DNS — zero downtime migration.</p></div></div>
+      <div class="faq-item border-b border-white/6 py-5"><div class="faq-question flex items-center justify-between gap-4 cursor-pointer" onclick="toggleFaq(this)"><h3 class="font-display font-semibold text-white text-base" style="font-weight:600">Is there an API for integrating with our systems?</h3><svg class="faq-chevron w-5 h-5 text-white/40 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></div><div class="faq-answer pt-3 pr-8"><p class="text-white/50 font-body text-sm leading-relaxed">Yes. REST API for content and webhook system for helpdesk events. Enterprise customers get full API access including custom integrations with regional tourism databases, ticketing systems or CRMs.</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-24 border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center fade-up">
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-tight mb-5" style="font-weight:800">Ready to see it in action?</h2>
+      <p class="text-white/50 font-body text-lg mb-10">Create your destination platform in 10 seconds — free, no credit card.</p>
+      <a href="/get-started" class="btn-pulse inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white font-display font-bold text-base px-8 py-4 rounded-2xl transition-colors shadow-lg shadow-teal-500/20" style="font-weight:700">
+        Create your destination — it's free →
+      </a>
+      <p class="mt-5 text-white/25 text-xs font-body">No credit card. No time limit. No commitment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex flex-col leading-none mb-4"><span class="font-display font-extrabold text-xl text-white" style="font-weight:800">eventya</span><span class="text-[9px] font-body tracking-[0.25em] text-teal-500 uppercase">Digital Neighbourhood</span></a>
+        <p class="text-white/35 text-sm font-body">Destination Management Platform for European DMOs.</p>
+      </div>
+      <div><h4 class="text-white/60 text-xs font-body uppercase tracking-widest mb-4">Product</h4><ul class="space-y-2.5"><li><a href="/platform" class="text-white/40 hover:text-white text-sm font-body transition-colors">Platform</a></li><li><a href="/pricing" class="text-white/40 hover:text-white text-sm font-body transition-colors">Pricing</a></li><li><a href="/get-started" class="text-white/40 hover:text-white text-sm font-body transition-colors">Get started</a></li></ul></div>
+      <div><h4 class="text-white/60 text-xs font-body uppercase tracking-widest mb-4">Resources</h4><ul class="space-y-2.5"><li><a href="/destinations" class="text-white/40 hover:text-white text-sm font-body transition-colors">Destinations</a></li><li><a href="/about" class="text-white/40 hover:text-white text-sm font-body transition-colors">About</a></li><li><a href="https://romania-atractiva.ro" target="_blank" class="text-white/40 hover:text-white text-sm font-body transition-colors">Case study</a></li></ul></div>
+      <div><h4 class="text-white/60 text-xs font-body uppercase tracking-widest mb-4">Contact</h4><ul class="space-y-2.5"><li><a href="/cdn-cgi/l/email-protection#660e030a0a092603100308121f0748080312" class="text-white/40 hover:text-white text-sm font-body transition-colors"><span class="__cf_email__" data-cfemail="c2aaa7aeaead82a7b4a7acb6bba3ecaca7b6">[email&#160;protected]</span></a></li><li><a href="https://eventya.net" class="text-white/40 hover:text-white text-sm font-body transition-colors">eventya.net</a></li></ul></div>
+    </div>
+    <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/20 text-xs font-body">© 2026 Eventya. All rights reserved.</p>
+      <div class="flex gap-6"><a href="/privacy" class="text-white/20 hover:text-white/50 text-xs font-body transition-colors">Privacy</a><a href="/terms" class="text-white/20 hover:text-white/50 text-xs font-body transition-colors">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.feat-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.feat-panel').forEach(p => p.classList.remove('active'));
+    const ids = ['website','app','ai','whatsapp','helpdesk'];
+    const tabs = document.querySelectorAll('.feat-tab');
+    const idx = ids.indexOf(id);
+    if (tabs[idx]) tabs[idx].classList.add('active');
+    const panel = document.getElementById('panel-' + id);
+    if (panel) panel.classList.add('active');
+  }
+  function toggleFaq(el) {
+    const answer = el.nextElementSibling;
+    const chevron = el.querySelector('.faq-chevron');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('open'));
+    if (!isOpen) { answer.classList.add('open'); chevron.classList.add('open'); }
+  }
+  const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(
